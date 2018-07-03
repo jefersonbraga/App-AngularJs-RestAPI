@@ -1,0 +1,116 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 9/19/2017 1:26:50 AM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>{{title}}</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li class="active">{{title}}</li>
+        </ol>
+    </div>
+</div>
+<div class="panel" data-style="panel" data-position="top" id="panel-pesquisa">
+    <div class="fade in" style=" height: 100%"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <span class="modal-title">
+                <strong>Pesquisa de registros</strong>
+            </span>
+            <div class="control-btn">
+                <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-dark"><i class="fa fa-plus"></i> Novo</button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+        </div>
+    </div>
+</div>
+<div class="panel" data-style="panel" data-position="top" id="modal-localprova" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="fade in"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+            <h4 class="modal-title"><strong>Cadastro de </strong> Local Prova</h4>
+        </div>
+        <form class="modal-body" ng-submit="Save()">
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="Id" class="form-label">{{codigo}}</label>
+                        <input type="number" ng-model="localprova.Id" name="Id" class="form-control" id="Id" placeholder="Id" readonly>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label for="Local" class="form-label">Local</label>
+                        <input type="text" min="3" max="Local" ng-model="localprova.Local" name="Local" class="form-control" id="Local" placeholder="Local" required>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Cep" class="form-label">Cep</label>
+                            <input type="text" ng-model="localprova.Cep" name="Cep" class="form-control bg-success" id="Cep" data-mask="99.999-999" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group" style="margin-top: 25px;">
+                            <button type="button" class="btn btn-default btn-rounded" ng-click="getCep()">Pesquisar</button>
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
+                <!--<div class="col-md-4">
+                    <div class="form-group">
+                        <label for="Logradouro" class="form-label">Logradouro</label>
+                        <input type="text" min="3" max="Logradouro" ng-model="localprova.Logradouro" name="Logradouro" class="form-control" id="Logradouro" placeholder="Logradouro" readonly>
+                    </div>
+                </div>-->
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="Endereco" class="form-label">Endereco</label>
+                        <input type="text" min="3" max="Endereco" ng-model="localprova.Endereco" name="Endereco" class="form-control" id="Endereco" placeholder="Endereco" readonly>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="Bairro" class="form-label">Bairro</label>
+                        <input type="text" min="3" max="Bairro" ng-model="localprova.Bairro" name="Bairro" class="form-control" id="Bairro" placeholder="Bairro" readonly>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Numero" class="form-label">Numero</label>
+                        <input type="number" ng-model="localprova.Numero" name="Numero" class="form-control" id="Numero" placeholder="Numero" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="Complemento" class="form-label">Complemento</label>
+                        <input type="text" min="3" max="Complemento" ng-model="localprova.Complemento" name="Complemento" class="form-control" id="Complemento" placeholder="Complemento">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Cidade" class="form-label">Cidade</label>
+                        <input type="text" min="3" max="Cidade" ng-model="localprova.Cidade" name="Cidade" class="form-control" id="Cidade" placeholder="Cidade" readonly>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="Estado" class="form-label">Estado</label>
+                        <input type="text" min="3" max="Estado" ng-model="localprova.Estado" name="Estado" class="form-control" id="Estado" placeholder="Estado" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

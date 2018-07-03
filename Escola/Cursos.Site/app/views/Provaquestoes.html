@@ -1,0 +1,40 @@
+<div class="panel" data-style="panel" data-position="top" id="modal-Provaquestoes" aria-hidden="false" data-action="none">
+    <div class="fade in"></div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Id" class="form-label">{{codigo}}</label>
+                            <input type="number" ng-model="Provaquestoes.Id" name="Id" class="form-control" id="Id" placeholder="Id" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="Grupoquestoesid" class="form-label">Grupo de {{questoes}}</label>
+                            <select class="form-control bg-success select-basic" data-search="true" id="Grupoquestoesid" name="Grupoquestoesid"
+                                    ng-model="Provaquestoes.Grupoquestoes" ng-selected="Recursoprova.Grupoquestoesid  == v.Id"
+                                    ng-options="v.Nome for v in gruposquestoes track by v.Id">
+                                <option value="">SELECIONE...</option>
+                            </select>
+                            <!--<input type="number" ng-model="Provaquestoes.Grupoquestoesid" name="Grupoquestoesid" class="form-control" id="Grupoquestoesid" placeholder="Grupoquestoesid" required>-->
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="Descricao" class="form-label">{{descricao}}</label>
+                            <input type="text" min="3" max="Descricao" ng-model="Provaquestoes.Descricao" name="Descricao" class="form-control" id="Descricao" placeholder="Descricao" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <button style="margin-top: 29px" type="button" ng-click="addItem('new')" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Novo</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="false" id="table"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

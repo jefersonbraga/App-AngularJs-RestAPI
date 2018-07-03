@@ -1,0 +1,5 @@
+C:\Source\escola\Fontes\Escola\Cursos.ViewModel\bin\Debug\Cursos.ViewModel.dll
+C:\Source\escola\Fontes\Escola\Cursos.ViewModel\bin\Debug\Cursos.ViewModel.pdb
+C:\Source\escola\Fontes\Escola\Cursos.ViewModel\obj\Debug\Cursos.ViewModel.csproj.CoreCompileInputs.cache
+C:\Source\escola\Fontes\Escola\Cursos.ViewModel\obj\Debug\Cursos.ViewModel.dll
+C:\Source\escola\Fontes\Escola\Cursos.ViewModel\obj\Debug\Cursos.ViewModel.pdb

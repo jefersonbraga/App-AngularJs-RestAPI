@@ -1,0 +1,161 @@
+<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@include file="../MultipleOutputHelper.ttinclude" #>
+
+
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+<# manager.StartHeader(); 
+string dataHoraGeracao = DateTime.Now.ToString();
+var listTablesNotLoad = new List<string>() {"__MigrationHistory","AspNetRoles","AspNetUserLogins","AspNetUserClaims","AspNetUserRoles","AspNetUsers","AD_REFRESHTOKENHISTORY","AD_REFRESHTOKEN"}; #>
+<# manager.EndBlock(); #>
+ 
+<# foreach (var entity in GetTables())
+   {
+	  if(listTablesNotLoad.Where(stringToCheck => stringToCheck.Equals(entity)).ToList().Count > 0)
+		continue;
+
+	 var className = string.Empty;
+		try 
+		{	        
+			var arrayEntity = entity.Split('_');
+			className = arrayEntity[1].Substring(0,1)+arrayEntity[1].ToLower().Substring(1,arrayEntity[1].Length -1);
+		}
+		catch
+		{
+			continue;
+		}
+	  manager.StartNewFile(className + ".html"); 
+#>
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: <#=dataHoraGeracao#>
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong><#=className#></strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li>
+                <a href="#"><#=className#></a>
+            </li>
+            <li class="active">Tabs</li>
+        </ol>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-header panel-controls">
+        <h3>
+            <strong>Pesquisa </strong> 
+        </h3>
+        <div class="control-btn">
+            <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-blue"><i class="fa fa-plus"></i>Novo</button>
+        </div>
+    </div>
+    <div class="panel-content">
+		<table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+    </div>
+</div>
+<div class="modal" data-style="panel" data-position="top" id="modal-<#=className#>" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="modal-backdrop fade in" style="height: 100%"></div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                <h4 class="modal-title"><strong>Cadastro de </strong> <#=className#></h4>
+            </div>
+            <div class="modal-body">
+                <# foreach (DataRow oRow in GetColumns(entity).Rows){
+					var columName = oRow[0].ToString().Substring(0,1) + oRow[0].ToString().ToLower().Substring(1,oRow[0].ToString().Length - 1);
+				#>
+					<#if(oRow[0].ToString() == "Id") continue;#>
+					<#if(oRow[1].ToString() == "uniqueidentifier"){#>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="<#=columName.ToLower()#>" class="form-label"><#=columName#></label>
+							<input type="text" ng-model="<#=className#>.<#=columName#>"  name="<#=columName#>" class="form-control" id="<#=columName#>" placeholder="<#=columName#>" required>
+						</div>
+					</div>
+				</div>
+					<#}else if(oRow[1].ToString() == "bit") {#>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<p>
+								<label for="<#=columName#>" class="form-label">Ativo</label>
+							</p>
+							<div class="select-blue">
+								<input class="select-checkbox checked" tabindex="10" ng-model="<#=className#>.<#=columName#>" type="checkbox" id="<#=columName#>">
+							</div>
+						</div>
+					</div>
+				</div>
+					<#}else if(oRow[1].ToString() == "datetime") {#>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="<#=columName#>" class="form-label"><#=columName#></label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="<#=className#>.<#=columName#>" name="datepicker" class="date-picker form-control" id="<#=columName#> placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+					<#}else if(oRow[1].ToString() == "decimal") {#>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="<#=columName#>" class="form-label"><#=columName#></label>
+							<input type="number" step="0.01" ng-model="<#=className#>.<#=columName#>"  name="<#=columName#>" class="form-control" id="<#=columName#>" placeholder="<#=columName#>" required>
+						</div>
+					</div>
+				</div>
+					<#}else if(oRow[1].ToString() == "int" || oRow[1].ToString() == "smallint") {#>;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="<#=columName#>" class="form-label"><#=columName#></label>
+							<input type="number" ng-model="<#=className#>.<#=columName#>"  name="<#=columName#>" class="form-control" id="<#=columName#>" placeholder="<#=columName#>" required>
+						</div>
+					</div>
+				</div>
+					<#}else if(oRow[1].ToString() == "image") { continue;#>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="<#=columName#>" class="form-label"><#=columName#></label>
+							<input type="text" ng-model="<#=className#>.<#=columName#>"  name="<#=columName#>" class="form-control" id="<#=columName#>" placeholder="<#=columName#>" required>
+						</div>
+					</div>
+				</div>
+					<#}else if(oRow[1].ToString() == "nvarchar" || oRow[1].ToString() == "nchar" || oRow[1].ToString() == "varchar"){#>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="<#=columName#>" class="form-label"><#=columName#></label>
+							<input type="text" min="3" max="<#=oRow[2].ToString()#>" ng-model="<#=className#>.<#=columName#>"  name="<#=columName#>" class="form-control" id="<#=columName#>" placeholder="<#=columName#>" required>
+						</div>
+					</div>
+				</div><#}#>
+				<#}#>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<#     
+      manager.EndBlock();
+   }
+#>
+ 
+<# manager.StartFooter(); #>
+
+<# manager.EndBlock(); #>
+ 
+<# manager.Process(true); #>

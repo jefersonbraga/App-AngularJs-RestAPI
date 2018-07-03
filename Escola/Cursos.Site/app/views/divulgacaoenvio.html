@@ -1,0 +1,126 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 9/19/2017 1:26:50 AM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>{{title}}</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li class="active">{{title}}</li>
+        </ol>
+    </div>
+</div>
+<div class="panel" data-style="panel" data-position="top" id="panel-pesquisa" style="display:none">
+    <div class="fade in" style=" height: 100%"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <span class="modal-title">
+                <strong>Pesquisa de registros</strong>
+            </span>
+            <div class="control-btn">
+                <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-dark"><i class="fa fa-plus"></i> Novo</button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+        </div>
+    </div>
+</div>
+
+<div class="panel" data-style="panel" data-position="top" id="modal-divulgacaoenvios" aria-hidden="false" data-action="new">
+    <div class="fade in"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+            <h4 class="modal-title"><strong>Envio de </strong> {{title}}</h4>
+        </div>
+        <form class="modal-body" id="formDivulgacaoenvios" ng-submit="Save()">
+            <fieldset>
+                <legend><strong>Mailing - Envio de Emails</strong></legend>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Filtro" class="form-label">Selecione uma lista de e-mails apartir do filtro</label>
+                            <select class="form-control bg-success select-basic" data-search="true" id="Filtro" name="Filtro"
+                                    ng-model="divulgacaoenvios.Filtro" ng-selected="true"
+                                    ng-options="v.value for v in filtros track by v.Id">
+                                <option value="Todos">Todos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="OrdemAlfabetica" class="form-label">Por ordem alfabetica</label>
+
+                            <select class="form-control bg-success select-basic" data-search="true" id="Letraalfabeto" name="Letraalfabeto"
+                                    ng-model="divulgacaoenvios.Letraalfabeto" ng-selected="true"
+                                    ng-options="v.Descricao for v in alfabeto track by v.Id">
+                                <option value="">Selecione..</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Orgaotrabalhoid" class="form-label">{{orgao}}</label>
+                            <select class="form-control bg-success select-basic" data-search="true" id="Orgao" name="Orgao"
+                                    ng-model="divulgacaoenvios.Orgao" ng-selected="divulgacaoenvios.Idorgaotrabalho  == v.Id"
+                                    ng-options="v.Orgao for v in orgaos track by v.Id">
+                                <option value="">Selecione...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="Divulgacao" class="form-label">Eventos</label>
+                            <select class="form-control bg-success select-basic" data-search="true" id="Evento" name="Evento"
+                                    ng-model="divulgacaoenvios.Evento" ng-selected="divulgacaoenvios.Idevento  == v.Id"
+                                    ng-options="v.Nome for v in eventos track by v.Id">
+                                <option value="">Selecione...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="Divulgacao" class="form-label">Selecione um Texto a ser incluso no email</label>
+                            <select class="form-control bg-success select-basic" data-search="true" id="Divulgacao" name="Divulgacao"
+                                    ng-model="divulgacaoenvios.Divulgacao" ng-selected="divulgacaoenvios.Divulgacao  == v.Id"
+                                    ng-options="v.Titulo for v in divulgacoes track by v.Id">
+                                <option value="">Selecione...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Assunto" class="form-label">Assunto</label>
+                            <input type="text" min="10" max="50" ng-model="divulgacaoenvios.Assunto" name="Assunto" class="form-control" id="Assunto" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Emailteste" class="form-label">E-mail teste</label>
+                            <input type="email" min="3" max="50" ng-model="divulgacaoenvios.Emailteste" name="Emailteste" class="form-control" id="Emailteste">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Emailremetente" class="form-label">E-mail Remetente</label>
+                            <input type="email" min="3" max="100" ng-model="divulgacaoenvios.Emailremetente" name="Emailremetente" class="form-control" id="Emailremetente" required>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="modal-footer">
+                <!--<button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>-->
+                <button type="submit" class="btn btn-primary btn-embossed" data-dismiss="modal">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>

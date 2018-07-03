@@ -1,0 +1,154 @@
+﻿<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>{{title}}</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li class="active">{{title}}</li>
+        </ol>
+    </div>
+</div>
+
+<div class="panel" data-style="panel" data-position="top" id="report-cliente" aria-hidden="false" data-action="new">
+    <div class="fade in"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <span class="modal-title">
+                <strong>{{title}}</strong>
+            </span>
+            <div class="control-btn">
+                <button type="button" ng-click="refresh()" class="btn btn-sm btn-white"><i class="fa fa-refresh"></i> Remover Filtros</button>
+            </div>
+        </div>
+        <form class="modal-body" id="formDivulgacaoenvios">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="Sexo" class="form-label">Colunas</label>
+                        <div style="overflow: auto;height: 200px;position: relative;border:1px solid #ccc!important" id="colunas">
+                            <ul class="jstree-container-ul">
+                                <li ng-repeat="item in Columnsreport | filter :{visible:false} | orderBy : 'ordem'" style="margin-left:20px; display:block"> <input type="checkbox" class="checkColumns" ordem="{{item.ordem}}" id="{{item.id}}" text="{{item.text}}" /><i class="{{item.icon}}"></i> {{item.text}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1" style="margin-top:72px;margin-right:-45px; margin-left:10px">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button type="button" ng-click="addColumn()" class="btn btn-sm btn-white">Adcionar <i class="fa fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button type="button" ng-click="removeColumn()" class="btn btn-sm btn-white"><i class="fa fa-arrow-left"></i> Remover</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="Sexo" class="form-label">Colunas Selecionadas</label>
+                        <div style="overflow: auto;height: 200px;position: relative;border:1px solid #ccc!important" id="colunasRelatorio">
+                            <ul>
+                                <li ng-repeat="item in Columnsreport | filter:{visible:true } | orderBy : 'ordem'" style="margin-left:20px; display:block"> <input type="checkbox" class="checkColumnsSelect" ordem="{{item.ordem}}" id="{{item.id}}" text="{{item.text}}" /><i class="{{item.icon}}"></i> {{item.text}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Sexo" class="form-label">Sexo</label>
+                                <select class="form-control bg-success select-basic" data-search="true" id="Sexofiltro" name="Sexo"
+                                        ng-model="filtro.Sexo">
+                                    <option value="">TODOS</option>
+                                    <option value="MASCULINO">MASCULINO</option>
+                                    <option value="FEMININO">FEMININO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Nome" class="form-label">Aniversario:</label>
+                                <input type="text" minlength="2" maxlength="250" ng-model="filtro.Dtaniversario" name="Dtaniversario" class="date-picker form-control bg-success" id="Dtaniversario" placeholder="Aniversario">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="OrdemAlfabetica" class="form-label">Por ordem alfabetica</label>
+                                <select class="form-control bg-success select-basic" data-search="true" id="Letraalfabeto" name="Letraalfabeto"
+                                        ng-model="filtro.Letraalfabeto" ng-selected="true"
+                                        ng-options="v.Descricao for v in alfabeto track by v.Id">
+                                    <option value="">TODOS</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Orgao" class="form-label">{{orgao}}</label>
+                                <select class="form-control bg-success select-basic" data-search="true" id="Orgao" name="Orgao"
+                                        ng-model="filtro.Orgao" ng-selected="filtro.Idorgaotrabalho  == v.Id"
+                                        ng-options="v.Orgao for v in orgaos track by v.Id">
+                                    <option value="">TODOS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Escolaridadeid" class="form-label">Escolaridade</label>
+                                <select class="form-control bg-success select-basic" data-search="true" required data-parsley-group="block3" id="Escolaridadeid"
+                                        ng-model="filtro.Escolaridadeid" ng-selected="filtro.Escolaridadeid  == v.Id"
+                                        ng-options="v.Escolaridade for v in escolaridades track by v.Id">
+                                    <option value="">TODOS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Escolaridadeid" class="form-label">Instituicao</label>
+                                <select class="form-control bg-success select-basic" data-search="true" required data-parsley-group="block3" id="Instituicaoid"
+                                        ng-model="filtro.Instituicaoid" ng-selected="filtro.Instituicaoid  == v.Id"
+                                        ng-options="v.Descricao for v in instituicoes track by v.Id">
+                                    <option value="">TODOS</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="Evento" class="form-label">Eventos Inscritos</label>
+                                        <select class="form-control bg-success select-basic" data-search="true" id="Evento" name="Evento"
+                                                ng-model="filtro.Evento" ng-selected="filtro.Idevento  == v.Id"
+                                                ng-options="v.Nome for v in eventos track by v.Id">
+                                            <option value="">TODOS</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <fieldset>
+                <legend><strong>Resultado Pesquisa</strong></legend>
+                <table dmp-table aa-data="tblData" aa-height="500" aa-action="false" aa-url="cliente/getpaginacao" aa-server="server" aa-editdelete="2" aa-search="false" aa-filter="true" id="table"></table>
+            </fieldset>
+            <div class="modal-footer">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-white" ng-click="getReport('excel')"><i class="fa fa-file-excel-o"></i> Excel</button>
+                    <button type="button" class="btn btn-white" ng-click="getReport('pdf')"><i class="fa fa-file-pdf-o"></i> PDF</button>
+                    <button type="button" class="btn btn-white" ng-click="getReport('word')"><i class="fa fa-file-word-o"></i> Word</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

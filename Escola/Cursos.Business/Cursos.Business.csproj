@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8435BABB-C2E3-4E1E-8402-1D6F19600FC9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cursos.Business</RootNamespace>
+    <AssemblyName>Cursos.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.89.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.89.0\lib\net452\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember.Signed, Version=1.0.0.9, Culture=neutral, PublicKeyToken=9e8f22703bef9a29, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.Signed.1.1.0\lib\net40\FastMember.Signed.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Select.HtmlToPdf, Version=18.1.0.0, Culture=neutral, PublicKeyToken=e0ae9f6e27a97018, processorArchitecture=MSIL">
+      <HintPath>..\packages\Select.HtmlToPdf.18.1.0\lib\net40\Select.HtmlToPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcoesBusiness.cs" />
+    <Compile Include="AspNetUsersBusiness.cs" />
+    <Compile Include="AvaliacaoBusiness.cs" />
+    <Compile Include="AvaliacaoobservacaoBusiness.cs" />
+    <Compile Include="AvaliacaoperguntaBusiness.cs" />
+    <Compile Include="ClienteBusiness.cs" />
+    <Compile Include="ControlenecessidadeBusiness.cs" />
+    <Compile Include="DependenciaadministrativaBusiness.cs" />
+    <Compile Include="DivulgacaoBusiness.cs" />
+    <Compile Include="DivulgacaoenviosBusiness.cs" />
+    <Compile Include="EnderecoViewModel.cs" />
+    <Compile Include="EscolaridadeBusiness.cs" />
+    <Compile Include="EventoBusiness.cs" />
+    <Compile Include="EventodatasBusiness.cs" />
+    <Compile Include="EventoturnosBusiness.cs" />
+    <Compile Include="GrupodequestoesBusiness.cs" />
+    <Compile Include="HomeBusiness.cs" />
+    <Compile Include="IdentityConfig.cs" />
+    <Compile Include="IdentityModels.cs" />
+    <Compile Include="InscricaoBusiness.cs" />
+    <Compile Include="InstituicoesBusiness.cs" />
+    <Compile Include="Interfaces\IAcoesBusiness.cs" />
+    <Compile Include="Interfaces\IAvaliacaoBusiness.cs" />
+    <Compile Include="Interfaces\IAvaliacaoobservacaoBusiness.cs" />
+    <Compile Include="Interfaces\IAvaliacaoperguntaBusiness.cs" />
+    <Compile Include="Interfaces\IClienteBusiness.cs" />
+    <Compile Include="Interfaces\IControlenecessidadeBusiness.cs" />
+    <Compile Include="Interfaces\IDependenciaadministrativaBusiness.cs" />
+    <Compile Include="Interfaces\IDivulgacaoBusiness.cs" />
+    <Compile Include="Interfaces\IDivulgacaoenviosBusiness.cs" />
+    <Compile Include="Interfaces\IEscolaridadeBusiness.cs" />
+    <Compile Include="Interfaces\IEventoBusiness.cs" />
+    <Compile Include="Interfaces\IEventodatasBusiness.cs" />
+    <Compile Include="Interfaces\IEventoturnosBusiness.cs" />
+    <Compile Include="Interfaces\IGrupodequestoesBusiness.cs" />
+    <Compile Include="Interfaces\IHomeBusiness.cs" />
+    <Compile Include="Interfaces\IBaseBusiness.cs" />
+    <Compile Include="Interfaces\IInscricaoBusiness.cs" />
+    <Compile Include="Interfaces\IInstituicoesBusiness.cs" />
+    <Compile Include="Interfaces\IListaatividadesBusiness.cs" />
+    <Compile Include="Interfaces\ILocaleventoBusiness.cs" />
+    <Compile Include="Interfaces\ILocalprovaBusiness.cs" />
+    <Compile Include="Interfaces\IMenuBusiness.cs" />
+    <Compile Include="Interfaces\IModulosBusiness.cs" />
+    <Compile Include="Interfaces\IMunicipioBusiness.cs" />
+    <Compile Include="Interfaces\INecessidadeBusiness.cs" />
+    <Compile Include="Interfaces\IOrgaoemissorBusiness.cs" />
+    <Compile Include="Interfaces\IOrgaosBusiness.cs" />
+    <Compile Include="Interfaces\IProvaquestoesBusiness.cs" />
+    <Compile Include="Interfaces\IQuestoescorrecaoBusiness.cs" />
+    <Compile Include="Interfaces\IRecursoprovaBusiness.cs" />
+    <Compile Include="Interfaces\IRefreshtokenBusiness.cs" />
+    <Compile Include="Interfaces\ISalalocalprovaBusiness.cs" />
+    <Compile Include="Interfaces\ISituacaoeventoBusiness.cs" />
+    <Compile Include="Interfaces\ITemaBusiness.cs" />
+    <Compile Include="Interfaces\ITipoeventoBusiness.cs" />
+    <Compile Include="Interfaces\ITpnecessidadeBusiness.cs" />
+    <Compile Include="Interfaces\IUfBusiness.cs" />
+    <Compile Include="Interfaces\Partial\IEventoBusiness.cs" />
+    <Compile Include="Interfaces\Partial\IClienteBusiness.cs" />
+    <Compile Include="Interfaces\Partial\IInscricaoBusiness.cs" />
+    <Compile Include="Interfaces\Partial\IMunicipioBusiness.cs" />
+    <Compile Include="Interfaces\Partial\IOrgaoemissorBusiness.cs" />
+    <Compile Include="Interfaces\Partial\IUfBusiness.cs" />
+    <Compile Include="ListaatividadesBusiness.cs" />
+    <Compile Include="LocaleventoBusiness.cs" />
+    <Compile Include="LocalprovaBusiness.cs" />
+    <Compile Include="MenuBusiness.cs" />
+    <Compile Include="ModulosBusiness.cs" />
+    <Compile Include="MunicipioBusiness.cs" />
+    <Compile Include="NecessidadeBusiness.cs" />
+    <Compile Include="OrgaoemissorBusiness.cs" />
+    <Compile Include="OrgaosBusiness.cs" />
+    <Compile Include="Partial\AcoesBusiness.cs" />
+    <Compile Include="Partial\AvaliacaoBusiness.cs" />
+    <Compile Include="Partial\AspNetUsersBusiness.cs" />
+    <Compile Include="Partial\AvaliacaoobservacaoBusiness.cs" />
+    <Compile Include="Partial\AvaliacaoperguntaBusiness.cs" />
+    <Compile Include="Partial\DivulgacaoenviosBusiness.cs" />
+    <Compile Include="Partial\EventodatasBusiness.cs" />
+    <Compile Include="Partial\EventoturnosBusiness.cs" />
+    <Compile Include="Interfaces\IReportingBusiness.cs" />
+    <Compile Include="Partial\GrupodequestoesBusiness.cs" />
+    <Compile Include="Partial\ProvaquestoesBusiness.cs" />
+    <Compile Include="Partial\QuestoescorrecaoBusiness.cs" />
+    <Compile Include="Partial\RecursoprovaBusiness.cs" />
+    <Compile Include="Partial\ReportingBusiness.cs" />
+    <Compile Include="Partial\SituacaoeventoBusiness.cs" />
+    <Compile Include="Partial\ClienteBusiness.cs" />
+    <Compile Include="Partial\ControlenecessidadeBusiness.cs" />
+    <Compile Include="Partial\DivulgacaoBusiness.cs" />
+    <Compile Include="Partial\EscolaridadeBusiness.cs" />
+    <Compile Include="Partial\EventoBusiness.cs" />
+    <Compile Include="Interfaces\Partial\IListaatividadesBusiness.cs" />
+    <Compile Include="Interfaces\IAspNetUsersBusiness.cs" />
+    <Compile Include="Partial\InscricaoBusiness.cs" />
+    <Compile Include="Partial\InstituicoesBusiness.cs" />
+    <Compile Include="Partial\ListaatividadesBusiness.cs" />
+    <Compile Include="Partial\LocaleventoBusiness.cs" />
+    <Compile Include="Partial\LocalprovaBusiness.cs" />
+    <Compile Include="Partial\MenuBusiness.cs" />
+    <Compile Include="Partial\ModulosBusiness.cs" />
+    <Compile Include="Partial\MunicipioBusiness.cs" />
+    <Compile Include="Partial\NecessidadeBusiness.cs" />
+    <Compile Include="Partial\OrgaoemissorBusiness.cs" />
+    <Compile Include="Partial\OrgaosBusiness.cs" />
+    <Compile Include="Partial\RefreshtokenBusiness.cs" />
+    <Compile Include="Partial\SalalocalprovaBusiness.cs" />
+    <Compile Include="Partial\TemaBusiness.cs" />
+    <Compile Include="Partial\TipoeventoBusiness.cs" />
+    <Compile Include="Partial\TpnecessidadeBusiness.cs" />
+    <Compile Include="Partial\UfBusiness.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ProvaquestoesBusiness.cs" />
+    <Compile Include="QuestoescorrecaoBusiness.cs" />
+    <Compile Include="RecursoprovaBusiness.cs" />
+    <Compile Include="RefreshtokenBusiness.cs" />
+    <Compile Include="Reports\RelatorioCliente.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RelatorioCliente.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalalocalprovaBusiness.cs" />
+    <Compile Include="SituacaoeventoBusiness.cs" />
+    <Compile Include="TemaBusiness.cs" />
+    <Compile Include="TipoeventoBusiness.cs" />
+    <Compile Include="TpnecessidadeBusiness.cs" />
+    <Compile Include="UfBusiness.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MultipleOutputHelper.ttinclude" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Weventos.ViewModel.ClienteViewModel.datasource" />
+    <None Include="Resources\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cursos.Data\Cursos.Data.csproj">
+      <Project>{43E0503E-5236-46B4-9F11-CE9C85CDB47D}</Project>
+      <Name>Cursos.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cursos.Repository\Cursos.Repository.csproj">
+      <Project>{BDA15AC4-F42A-4649-8F50-C62FE2ABDFC4}</Project>
+      <Name>Cursos.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cursos.ViewModel\Cursos.ViewModel.csproj">
+      <Project>{2e7b77b7-0b25-4452-83cb-277fffbf9cd9}</Project>
+      <Name>Cursos.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RelatorioCliente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RelatorioCliente.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RelatorioClientes.rdlc" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

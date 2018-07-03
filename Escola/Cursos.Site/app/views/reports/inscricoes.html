@@ -1,0 +1,34 @@
+﻿<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>Desculpe em Construção..</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li class="active">{{title}}</li>
+        </ol>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-header panel-controls">
+        <h3><i class="icon-list"></i> <strong>{{title}}</strong></h3>
+    </div>
+    <div class="panel-content">
+        <div class="row">
+            <div ng-repeat="list in model" class="col-sm-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">{{list.ListName}}</div>
+                    <div class="panel-body">
+                        <ul dnd-list dnd-drop="callback({targetList: list, targetIndex: index})">
+                            <li ng-repeat="item in list.items"
+                                dnd-draggable="null" dnd-callback="onDrop(list, $index, targetList, targetIndex)">
+                                {{item.title}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

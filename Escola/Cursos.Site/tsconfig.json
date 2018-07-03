@@ -1,0 +1,11 @@
+﻿{
+  "compilerOptions": {
+    "allowJs": true,
+    "noEmit": true
+  },
+  "exclude": [ "wwwroot/lib" ], //ignore lib folders, we will get IntelliSense via ATA
+  "typeAcquisition": {
+    "enable": true,
+    "include": [ "jquery" ] //kendo-ui wasn't added via bower, so we need to list it here
+  }
+}

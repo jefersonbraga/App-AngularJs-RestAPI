@@ -1,0 +1,87 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 9/19/2017 1:26:50 AM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>{{title}}</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li class="active">{{title}}</li>
+        </ol>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-header panel-controls">
+        <h3>
+            <strong>Pesquisa </strong> 
+        </h3>
+        <div class="control-btn">
+            <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-blue"><i class="fa fa-plus"></i>Novo</button>
+        </div>
+    </div>
+    <div class="panel-content">
+		<table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+    </div>
+</div>
+<div class="modal" data-style="panel" data-position="top" id="modal-acoes" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="modal-backdrop fade in" style="height: 100%"></div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                <h4 class="modal-title"><strong>Cadastro de </strong> {{title}}</h4>
+            </div>
+            <form ng-submit="Save()" name="formAcoes">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="Id" class="form-label">{{codigo}}</label>
+                                <input type="number" ng-model="acoes.Id" name="Id" class="form-control" id="Id" placeholder="Id" required>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="Acoes" class="form-label">{{title}}</label>
+                                <input type="text" min="3" max="Acoes" ng-model="acoes.Acoes" name="Acoes" class="form-control" id="Acoes" placeholder="Acoes" required>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="Moduloid" class="form-label">Moduloid</label>
+                                <input type="number" ng-model="acoes.Moduloid" name="Moduloid" class="form-control" id="Moduloid" placeholder="Moduloid" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Link" class="form-label">Link</label>
+                                <input type="text" min="3" max="Link" ng-model="acoes.Link" name="Link" class="form-control" id="Link" placeholder="Link" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Icone" class="form-label">Icone</label>
+                                <input type="text" min="3" max="Icone" ng-model="acoes.Icone" name="Icone" class="form-control" id="Icone" placeholder="Icone" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Ordem" class="form-label">Ordem</label>
+                                <input type="number" ng-model="acoes.Ordem" name="Ordem" class="form-control" id="Ordem" placeholder="Ordem" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

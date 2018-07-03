@@ -1,0 +1,90 @@
+﻿<div class="panel" data-style="panel" data-position="top" id="modal-Grupodequestoes" aria-hidden="false" style="display: block;" data-action="none">
+    <div class="modal-content">
+        <div class="modal-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Id" class="form-label">{{codigo}}</label>
+                            <input type="number" ng-model="Recursoprova.Id" name="Id" class="form-control" id="Id" placeholder="Codigo" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Eventoid" class="form-label">Evento</label>
+                            <select class="form-control bg-success select-basic" data-search="true" id="Evento" name="Evento"
+                                    ng-model="Recursoprova.Evento" ng-selected="Recursoprova.Eventoid  == v.Id"
+                                    ng-options="v.Nome for v in eventos track by v.Id">
+                                <option value="">SELECIONE...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Titulo" class="form-label">Titulo</label>
+                            <input type="text" min="3" max="Titulo" ng-model="Recursoprova.Titulo" name="Titulo" class="form-control" id="Titulo" placeholder="Titulo" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Eventoid" class="form-label">Tipo</label>
+                            <select class="form-control bg-success select-basic" data-search="true" id="Evento" name="Evento"
+                                    ng-model="Recursoprova.Tipo" ng-selected="Recursoprova.Tipoid  == v.Id"
+                                    ng-options="v.Nome for v in tipos track by v.Id">
+                                <option value="">SELECIONE...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Dtinicio" class="form-label">Inicio</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="Recursoprova.Dtinicio" name="datepicker" class="date-picker form-control" id="Dtinicio" required>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Dtinicio" class="form-label">Hora Inicio</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="Recursoprova.Hrinicio" name="datepicker" class="date-picker form-control" id="Dtinicio" required>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Dttermino" class="form-label">Termino</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="Recursoprova.Dttermino" name="datepicker" class="date-picker form-control" id="Dttermino" required>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Dttermino" class="form-label">Hora Termino</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="Recursoprova.Hrtermino" name="datepicker" class="date-picker form-control" id="Dttermino" required>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="Dttermino" class="form-label">{{instrucoes}}</label>
+                        <summernote airMode id="instrucoes" on-change="change(contents)" max-height="300px" height="300px">
+                        </summernote>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

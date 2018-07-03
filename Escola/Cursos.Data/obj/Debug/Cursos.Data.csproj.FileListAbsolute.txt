@@ -1,0 +1,11 @@
+C:\Source\escola\Fontes\Escola\Cursos.Data\bin\Debug\Cursos.Data.dll.config
+C:\Source\escola\Fontes\Escola\Cursos.Data\bin\Debug\Cursos.Data.dll
+C:\Source\escola\Fontes\Escola\Cursos.Data\bin\Debug\Cursos.Data.pdb
+C:\Source\escola\Fontes\Escola\Cursos.Data\bin\Debug\EntityFramework.dll
+C:\Source\escola\Fontes\Escola\Cursos.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Source\escola\Fontes\Escola\Cursos.Data\bin\Debug\EntityFramework.xml
+C:\Source\escola\Fontes\Escola\Cursos.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Source\escola\Fontes\Escola\Cursos.Data\obj\Debug\Cursos.Data.csproj.CoreCompileInputs.cache
+C:\Source\escola\Fontes\Escola\Cursos.Data\obj\Debug\Cursos.Data.csproj.CopyComplete
+C:\Source\escola\Fontes\Escola\Cursos.Data\obj\Debug\Cursos.Data.dll
+C:\Source\escola\Fontes\Escola\Cursos.Data\obj\Debug\Cursos.Data.pdb

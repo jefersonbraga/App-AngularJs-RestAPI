@@ -1,0 +1,348 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="admin-themes-lab">
+    <meta name="author" content="themes-lab">
+    <link rel="shortcut icon" href="../assets/global/images/favicon.png" type="image/png">
+    <title>Wescola</title>
+    <link href="../assets/global/css/style.css" rel="stylesheet">
+    <link href="../assets/global/css/theme.css" rel="stylesheet">
+    <link href="../assets/global/css/ui.css" rel="stylesheet">
+    <link href="../assets/admin/layout1/css/layout.css" rel="stylesheet">
+    <!-- BEGIN PAGE STYLE -->
+    <link href="../assets/global/plugins/metrojs/metrojs.min.css" rel="stylesheet">
+    <link href="../assets/global/plugins/maps-amcharts/ammap/ammap.min.css" rel="stylesheet">
+
+    <link href="assets/global/plugins/select2/select.css" rel="stylesheet" />
+    <!--<link href="assets/global/plugins/select2-4.0.6-rc/css/select2.css" rel="stylesheet" />-->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />-->
+    <!-- END PAGE STYLE -->
+    <!--<link href="assets/global/plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet" />-->
+    <link href="assets/global/plugins/bootstrap-table-master/bootstrap-table.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="//cdn.rawgit.com/needim/noty/a6cccf80/lib/noty.css">-->
+    <link href="assets/global/plugins/noty/noty.css" rel="stylesheet" />
+    <script src="../assets/global/plugins/modernizr/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <link href="assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="../assets/global/plugins/summernote/summernote.min.css" rel="stylesheet">
+    <!--form wizard-->
+    <link href="assets/global/plugins/jquery.steps-1.1.0/jquery.steps.css" rel="stylesheet" />
+    <link href="assets/global/plugins/step-form-wizard/plugins/parsley/parsley.css" rel="stylesheet" />
+    <link href="assets/global/plugins/summernote/summernote.css" rel="stylesheet" />
+    <link href="assets/multi.css" rel="stylesheet" />
+    <link href="assets/global/plugins/jstree/src/themes/default/style.min.css" rel="stylesheet">
+
+    <!--<link href="assets/global/plugins/step-form-wizard/css/step-form-wizard.css" rel="stylesheet" />
+    <link href="assets/global/plugins/step-form-wizard/plugins/parsley/parsley.css" rel="stylesheet" />-->
+</head>
+<body ng-app="wescolaApp" class="sidebar-light fixed-topbar theme-sltl bg-light-dark color-default dashboard" ng-controller="HomeController">
+
+    <section>
+        <!-- BEGIN SIDEBAR -->
+        <div class="sidebar">
+            <div class="logopanel">
+                <h1>
+                    <a href="dashboard.html"></a>
+                </h1>
+            </div>
+            <div class="sidebar-inner">
+                <div class="sidebar-top">
+                    <div class="userlogged clearfix">
+                        <i class="icon" style="margin-top: -28px;">
+                            <img src="../assets/global/images/avatars/user1.png" class="img-circle" alt="user image">
+                        </i>
+                        <!--<img src="../assets/global/images/avatars/user1.png" alt="user image">-->
+                        <div class="user-details">
+                            <h4>{{usuario}}</h4>
+                            <div class="dropdown user-login">
+                                <button class="btn btn-xs dropdown-toggle btn-rounded" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" data-delay="300">
+                                    <i class="online"></i><span>Available</span><i class="fa fa-angle-down"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-title">
+                    Navegação
+                    <div class="pull-right menu-settings">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" data-delay="300">
+                            <i class="icon-settings"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" id="reorder-menu" class="reorder-menu">Reorder menu</a></li>
+                            <li><a href="#" id="remove-menu" class="remove-menu">Remove elements</a></li>
+                            <li><a href="#" id="hide-top-sidebar" class="hide-top-sidebar">Hide user &amp; search</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="nav nav-sidebar">
+                    <li class=" nav-active active"><a href="#/dashboard"><i class="icon-home"></i><span>Dashboard</span></a></li>
+                    <li ng-class="{'nav-hover':hovering}" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false" class="nav-parent" ng-repeat="item in acoes">
+                        <a href=""><i class="{{item.Icone}}"></i><span>{{item.Acoes}}</span><span ng-class="{true:'fa arrow', false:''}[item.Menu.length > 0]"></span></a>
+                        <ul class="children collapse">
+                            <li ng-repeat="itemMenu in item.Menu"><a href="#{{itemMenu.Link}}"> {{itemMenu.Menu}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="sidebar-footer clearfix">
+                    <a class="pull-left footer-settings" href="#" data-rel="tooltip" data-placement="top" data-original-title="Settings">
+                        <i class="icon-settings"></i>
+                    </a>
+                    <a class="pull-left toggle_fullscreen" href="#" data-rel="tooltip" data-placement="top" data-original-title="Fullscreen">
+                        <i class="icon-size-fullscreen"></i>
+                    </a>
+                    <a class="pull-left" href="user-lockscreen.html" data-rel="tooltip" data-placement="top" data-original-title="Lockscreen">
+                        <i class="icon-lock"></i>
+                    </a>
+                    <a class="pull-left btn-effect" href="user-login-v1.html" data-modal="modal-1" data-rel="tooltip" data-placement="top" data-original-title="Logout">
+                        <i class="icon-power"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <div class="main-content">
+            <!-- BEGIN TOPBAR -->
+            <div class="topbar">
+                <div class="header-left">
+                    <div class="topnav">
+                        <a class="menutoggle" href="#" data-toggle="sidebar-collapsed"><span class="menu__handle"><span>Menu</span></span></a>
+                        <ul class="nav nav-icons">
+                            <li><a href="#" class="toggle-sidebar-top"><span class="icon-user-following"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <ul class="header-menu nav navbar-nav">
+                        <!-- BEGIN USER DROPDOWN -->
+                        <li class="dropdown" id="notifications-header">
+                            <span class="badge badge-important badge-header" style="margin-top:22px;">{{ddMMMMyyyy}} as {{clock}}</span>
+                        </li>
+                        <li class="dropdown" id="user-header">
+                            <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <img src="../assets/global/images/avatars/user1.png" alt="user image">
+                                <span class="username">{{usuario}}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#"><i class="icon-user"></i><span>Meu Perfil</span></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="icon-logout"></i><span>Sair</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END USER DROPDOWN -->
+                    </ul>
+                </div>
+                <!-- header-right -->
+            </div>
+            <!-- END TOPBAR -->
+            <!-- BEGIN PAGE CONTENT -->
+            <div class="page-content page-thin">
+                <div data-ng-view ng-animate="'animate-enter'">
+                </div>
+                <div class="footer">
+                    <div class="copyright">
+                        <p class="pull-left sm-pull-reset">
+                            <span>Copyright <span class="copyright">©</span> 2017 </span>
+                            <span>Fundação Escola Superior</span>.
+                            <span>Todos os Direitos Reservados. </span>
+                        </p>
+                        <p class="pull-right sm-pull-reset">
+                            <span><a href="#" class="m-r-10">Suporte</a> | <a href="#" class="m-l-10 m-r-10">Termos de Uso</a> | <a href="#" class="m-l-10">Politica de Privacidade</a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT -->
+        </div>
+        <!-- END MAIN CONTENT -->
+    </section>
+
+    <!-- BEGIN PRELOADER -->
+    <div class="loader-overlay">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <div id="wait" style="display:none;position:absolute;top:50%;left:50%;padding:2px;"><img src='assets/global/images/Spin.gif' width="64" height="64" /><br>Carregando..</div>
+
+    <!-- END PRELOADER -->
+    <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+    <!--<script src="scripts/jquery-3.2.1.min.js"></script>-->
+    <script src="assets/global/plugins/jquery/jquery-3.2.1.js"></script>
+    <script src="../assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+    <script src="../assets/global/plugins/gsap/main-gsap.min.js"></script>
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/global/plugins/jquery-cookies/jquery.cookies.min.js"></script> <!-- Jquery Cookies, for theme -->
+    <script src="../assets/global/plugins/jquery-block-ui/jquery.blockUI.min.js"></script> <!-- simulate synchronous behavior when using AJAX -->
+    <script src="../assets/global/plugins/bootbox/bootbox.min.js"></script> <!-- Modal with Validation -->
+    <script src="../assets/global/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> <!-- Custom Scrollbar sidebar -->
+    <script src="../assets/global/plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js"></script> <!-- Show Dropdown on Mouseover -->
+    <script src="../assets/global/plugins/charts-sparkline/sparkline.min.js"></script> <!-- Charts Sparkline -->
+    <script src="../assets/global/plugins/retina/retina.min.js"></script> <!-- Retina Display -->
+    <script src="../assets/global/plugins/select2/select2.js"></script>  <!--Select Inputs-->
+    <script src="../assets/global/plugins/select2/select2_locale_pt-BR.js"></script>  <!--Select Inputs-->
+    <!--<script src="assets/global/plugins/select2-4.0.6-rc/js/select2.full.js"></script>
+    <script src="assets/global/plugins/select2-4.0.6-rc/js/i18n/pt-BR.js"></script>-->
+    <script src="../assets/global/plugins/icheck/icheck.min.js"></script>
+    <!-- Checkbox & Radio Inputs
+    <script src="../assets/global/plugins/backstretch/backstretch.min.js"></script> <!-- Background Image -->
+    <script src="../assets/global/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script> <!-- Animated Progress Bar -->
+    <script src="../assets/global/js/sidebar_hover.js"></script> <!-- Sidebar on Hover -->
+    <script src="../assets/global/js/application.js"></script> <!-- Main Application Script -->
+    <!--<script src="../assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+    <script src="../assets/global/js/widgets/notes.js"></script> <!-- Notes Widget -->
+    <!--<script src="../assets/global/js/quickview.js"></script>--> <!-- Chat Script -->
+    <script src="../assets/global/js/pages/search.js"></script> <!-- Search Script -->
+    <!-- BEGIN PAGE SCRIPT -->
+    <script src="../assets/global/plugins/noty/jquery.noty.packaged.min.js"></script>  <!-- Notifications -->
+
+    <script src="../assets/global/plugins/bootstrap-editable/js/bootstrap-editable.min.js"></script> <!-- Inline Edition X-editable -->
+    <!--Boostrap Table-->
+    <script src="assets/global/plugins/bootstrap-table-master/bootstrap-table.js"></script>
+    <script src="assets/global/plugins/bootstrap-table-master/bootstrap-table-locale-all.js"></script>
+    <script src="assets/global/plugins/bootstrap-table-master/extensions/export/bootstrap-table-export.js"></script>
+    <script src="assets/global/plugins/bootstrap-table-master/extensions/export/tableExport.jquery.plugin.js"></script>
+    <script src="assets/global/plugins/bootstrap-table-master/extensions/select2-filter/bootstrap-table-select2-filter.js"></script>
+    <script src="assets/global/plugins/bootstrap-table-master/extensions/multiple-search/bootstrap-table-multiple-search.js"></script>
+    <script src="../assets/global/plugins/summernote/summernote.min.js"></script> <!-- Simple HTML Editor -->
+    <!--Todo List-->
+    <script src="../assets/global/js/widgets/todo_list.js"></script>
+    <!--charts-->
+    <script src="../assets/global/plugins/charts-sparkline/sparkline.min.js"></script> <!-- Charts Sparkline -->
+    <script src="../assets/global/plugins/charts-chartjs/Chart.min.js"></script>  <!-- ChartJS Chart -->
+
+    <script src="../assets/global/plugins/metrojs/metrojs.min.js"></script> <!-- Flipping Panel -->
+    <!-- END PAGE SCRIPT -->
+    <script src="../assets/admin/layout1/js/layout.js"></script>
+    <script src="assets/global/js/date.js"></script>
+    <!-- 3rd party libraries -->
+    <script src="assets/global/plugins/angular/angular.min.js"></script>
+    <script src="assets/global/plugins/angular/angular-route.js"></script>
+    <script src="assets/global/plugins/angular/angular-animate.js"></script>
+    <script src="assets/global/plugins/angular/angular-ui-router.min.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>-->
+    <!--<script src="assets/global/plugins/angular/angular-route.min.js"></script>
+    <script src="assets/global/plugins/angular/angular-animate.min.js"></script>-->
+    <script src="assets/global/plugins/angular/angular-locale_pt-br.js"></script>
+    <script src="assets/global/plugins/angular/angular-local-storage.min.js"></script>
+
+    <script src="scripts/loading-bar.min.js"></script>
+    <script src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> <!-- >Bootstrap Date Picker -->
+    <script src="assets/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+    <script src="../assets/global/plugins/timepicker/jquery-ui-timepicker-addon.min.js"></script> <!-- Time Picker -->
+
+    <script src="../assets/global/plugins/switchery/switchery.min.js"></script> <!-- IOS Switch -->
+    <!--<script src="../assets/global/plugins/select2/select2.min.js"></script>--> <!-- Select Inputs -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>-->
+    <script src="assets/global/plugins/bootstrap/js/jasny-bootstrap.min.js"></script> <!-- File Upload and Input Masks -->
+    <script src="assets/global/plugins/jquery-validation/jquery.validate.js"></script> <!-- Form Validation -->
+    <script src="assets/global/plugins/jquery-validation/additional-methods.js"></script>
+    <!--<script src="../assets/global/plugins/step-form-wizard/plugins/parsley/parsley.min.js"></script> <!-- OPTIONAL, IF YOU NEED VALIDATION -->
+    <!--<script src="assets/global/plugins/step-form-wizard/plugins/parsley/pt-br.js"></script>-->
+    <script src="assets/global/plugins/angular/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
+    <script src="../assets/global/plugins/jstree/jstree.min.js"></script> <!-- interactive trees -->
+    <!--<script src="assets/global/plugins/jstree/dist/ngJsTree.js"></script>-->
+    <!-- Load app main script -->
+
+    <script src="app/app.js?v=2"></script>
+    <script src="diretivas/validate-cpf-directive.js"></script>
+    <script src="diretivas/angular-drag-and-drop-lists.js"></script>
+    <script src="assets/global/plugins/summernote/angular-summernote.js"></script>
+    <script src="assets/global/plugins/ng-idle-develop/idle/idle.js"></script>
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js?v=2"></script>
+    <script src="app/services/authService.js?v=2"></script>
+    <script src="app/services/ordersService.js?v=2"></script>
+    <script src="app/services/tokensManagerService.js?v=2"></script>
+
+    <script src="app/services/homeService.js"></script>
+    <script src="app/services/acoesService.js?v=2"></script>
+    <script src="app/services/menuService.js?v=2"></script>
+    <script src="app/services/modulosService.js?v=2"></script>
+    <script src="app/services/orgaosService.js?v=2"></script>
+    <script src="app/services/avaliacaoService.js?v=2"></script>
+    <script src="app/services/clienteService.js?v=2"></script>
+    <script src="app/services/controlenecessidadeService.js?v=2"></script>
+    <script src="app/services/divulgacaoService.js?v=2"></script>
+    <script src="app/services/escolaridadeService.js?v=2"></script>
+    <script src="app/services/eventoService.js?v=2"></script>
+    <script src="app/services/inscricaoService.js?v=2"></script>
+    <script src="app/services/localprovaService.js?v=2"></script>
+    <script src="app/services/necessidadeService.js?v=2"></script>
+    <script src="app/services/salalocalprovaService.js?v=2"></script>
+    <script src="app/services/temaService.js?v=2"></script>
+    <script src="app/services/tpnecessidadeService.js?v=2"></script>
+    <script src="app/services/orgaoemissorService.js"></script>
+    <script src="app/services/ufService.js"></script>
+    <script src="app/services/municipioService.js"></script>
+    <script src="app/services/dashboardService.js"></script>
+    <script src="app/services/listaatividadesService.js"></script>
+    <script src="app/services/LocaleventoService.js"></script>
+    <script src="app/services/cepServices.js"></script>
+    <script src="app/services/situacaoeventoService.js"></script>
+    <script src="app/services/tipoeventoService.js"></script>
+    <script src="app/services/EventoturnosService.js"></script>
+    <script src="app/services/eventodatasService.js"></script>
+    <script src="app/services/DivulgacaoenviosService.js"></script>
+    <script src="app/services/AvaliacaoobservacaoService.js"></script>
+    <script src="app/services/AvaliacaoperguntaService.js"></script>
+    <script src="app/services/GrupodequestoesService.js"></script>
+    <script src="app/services/ProvaquestoesService.js"></script>
+    <script src="app/services/QuestoescorrecaoService.js"></script>
+    <script src="app/services/RecursoprovaService.js"></script>
+
+    <!-- Load controllers -->
+
+    <script src="app/controllers/IndexController.js?v=2"></script>
+    <script src="app/controllers/HomeController.js?v=2"></script>
+    <script src="app/controllers/LoginController.js?v=2"></script>
+    <script src="app/controllers/signupController.js?v=2"></script>
+    <script src="app/controllers/ReportsController.js?v=2"></script>
+    <script src="app/controllers/refreshController.js?v=2"></script>
+    <script src="app/controllers/tokensManagerController.js?v=2"></script>
+    <script src="app/controllers/associateController.js?v=2"></script>
+
+    <script src="app/controllers/DivulgacaoenviosController.js"></script>
+    <script src="app/controllers/AcoesController.js?v=2"></script>
+    <script src="app/controllers/MenuController.js?v=2"></script>
+    <script src="app/controllers/ModulosController.js?v=2"></script>
+    <script src="app/controllers/OrgaosController.js?v=2"></script>
+    <script src="app/controllers/AvaliacaoController.js?v=2"></script>
+    <script src="app/controllers/clienteController.js?v=2"></script>
+    <script src="app/controllers/ControlenecessidadeController.js?v=2"></script>
+    <script src="app/controllers/DivulgacaoController.js?v=2"></script>
+    <script src="app/controllers/EscolaridadeController.js?v=2"></script>
+    <script src="app/controllers/EventoController.js?v=2"></script>
+    <script src="app/controllers/InscricaoController.js?v=2"></script>
+    <script src="app/controllers/localprovaController.js?v=2"></script>
+    <script src="app/controllers/NecessidadeController.js?v=2"></script>
+    <script src="app/controllers/SalalocalprovaController.js?v=2"></script>
+    <script src="app/controllers/temaController.js?v=2"></script>
+    <script src="app/controllers/TpnecessidadeController.js?v=2"></script>
+    <script src="app/controllers/DashboardController.js"></script>
+    <script src="app/controllers/AvaliacaoobservacaoController.js"></script>
+    <script src="app/controllers/AvaliacaoperguntaController.js"></script>
+    <script src="app/controllers/GrupodequestoesController.js"></script>
+    <script src="app/controllers/RecursoprovaController.js"></script>
+    <script src="app/controllers/ProvaquestoesController.js"></script>
+    <script src="app/controllers/QuestoescorrecaoController.js"></script>
+
+    <script src="scripts/services/notyService.js"></script>
+    <script src="scripts/pluginDataTable.js"></script>
+    <script src="app/services/shareServices.js"></script>
+    <script src="app/services/pluginServices.js"></script>
+    <script src="diretivas/wizard-steps.js"></script>
+    <script src="assets/global/plugins/bootstrap-table-master/extensions/angular/bootstrap-table-angular.js"></script>
+</body>
+</html>

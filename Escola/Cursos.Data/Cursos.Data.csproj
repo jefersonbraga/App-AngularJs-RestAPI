@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43E0503E-5236-46B4-9F11-CE9C85CDB47D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cursos.Data</RootNamespace>
+    <AssemblyName>Cursos.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AD_ACOES.cs" />
+    <Compile Include="AD_MENU.cs" />
+    <Compile Include="AD_MODULOS.cs" />
+    <Compile Include="AD_MUNICIPIO.cs" />
+    <Compile Include="AD_ORGAOEMISSOR.cs" />
+    <Compile Include="AD_ORGAOS.cs" />
+    <Compile Include="AD_REFRESHTOKEN.cs" />
+    <Compile Include="AD_REFRESHTOKENHISTORY.cs" />
+    <Compile Include="AD_UF.cs" />
+    <Compile Include="AspNetRole.cs" />
+    <Compile Include="AspNetUsers.cs" />
+    <Compile Include="AspNetUserClaim.cs" />
+    <Compile Include="AspNetUserLogin.cs" />
+    <Compile Include="ES_DEPENDENCIAADMINISTRATIVA.cs" />
+    <Compile Include="ES_INSTITUICOES.cs" />
+    <Compile Include="ES_LISTAATIVIDADES.cs" />
+    <Compile Include="EV_AVALIACAO.cs" />
+    <Compile Include="EV_AVALIACAOOBSERVACAO.cs" />
+    <Compile Include="EV_AVALIACAOPERGUNTA.cs" />
+    <Compile Include="EV_CLIENTE.cs" />
+    <Compile Include="EV_CONTROLENECESSIDADE.cs" />
+    <Compile Include="EV_DIVULGACAO.cs" />
+    <Compile Include="EV_DIVULGACAOENVIOS.cs" />
+    <Compile Include="EV_ESCOLARIDADE.cs" />
+    <Compile Include="EV_EVENTO.cs" />
+    <Compile Include="EV_EVENTODATAS.cs" />
+    <Compile Include="EV_EVENTOTURNOS.cs" />
+    <Compile Include="EV_GRUPODEQUESTOES.cs" />
+    <Compile Include="EV_INSCRICAO.cs" />
+    <Compile Include="EV_LOCALEVENTO.cs" />
+    <Compile Include="EV_LOCALPROVA.cs" />
+    <Compile Include="EV_NECESSIDADE.cs" />
+    <Compile Include="EV_PROVAQUESTOES.cs" />
+    <Compile Include="EV_QUESTOESCORRECAO.cs" />
+    <Compile Include="EV_RECURSOPROVA.cs" />
+    <Compile Include="EV_SALALOCALPROVA.cs" />
+    <Compile Include="EV_SITUACAOEVENTO.cs" />
+    <Compile Include="EV_TEMA.cs" />
+    <Compile Include="EV_TIPOEVENTO.cs" />
+    <Compile Include="EV_TPNECESSIDADE.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Context\WescolaContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

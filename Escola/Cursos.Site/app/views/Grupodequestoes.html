@@ -1,0 +1,28 @@
+<div class="panel" data-style="panel" data-position="top" id="modal-Grupodequestoes" aria-hidden="false" style="display: block;" data-action="none">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="Id" class="form-label">{{codigo}}</label>
+                        <input type="number" ng-model="Grupodequestoes.Id" name="Id" class="form-control" id="Id" placeholder="Id" readonly>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="Descricao" class="form-label">{{descricao}}</label>
+                        <input type="text" min="3" max="Descricao" ng-model="Grupodequestoes.Descricao" name="Descricao" class="form-control" id="Descricao" placeholder="Descricao" required>
+                    </div>
+                </div>
+                <div class="col-md-1" style="margin-top: 29px">
+                    <button type="button" ng-click="addItem('new')" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Novo</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="false" id="table"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

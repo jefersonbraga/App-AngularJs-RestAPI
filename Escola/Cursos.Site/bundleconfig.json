@@ -1,0 +1,26 @@
+[
+  {
+    "outputFileName": "app/services/homeService.min.js",
+    "inputFiles": [
+      "app/services/homeService.js"
+    ]
+  },
+  {
+    "outputFileName": "app/controllers/ClienteController.min.js",
+    "inputFiles": [
+      "app/controllers/ClienteController.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/global/plugins/angular/angular-route.min.js",
+    "inputFiles": [
+      "assets/global/plugins/angular/angular-route.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/global/plugins/angular/angular-animate.min.js",
+    "inputFiles": [
+      "assets/global/plugins/angular/angular-animate.js"
+    ]
+  }
+]

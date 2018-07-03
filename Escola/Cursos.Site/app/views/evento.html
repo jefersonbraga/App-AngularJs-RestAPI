@@ -1,0 +1,341 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 9/19/2017 1:26:50 AM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>{{title}}</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li class="active">{{title}}</li>
+        </ol>
+    </div>
+</div>
+<div class="panel" data-style="panel" data-position="top" id="panel-pesquisa">
+    <div class="fade in" style=" height: 100%"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <span class="modal-title">
+                <strong>Pesquisa de registros</strong>
+            </span>
+            <div class="control-btn">
+                <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-dark"><i class="fa fa-plus"></i> Novo</button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <table dmp-table aa-data="tblData" aa-height="500" aa-action="true" aa-url="evento/getpaginacao" aa-server="server" aa-editdelete="2" aa-search="true" aa-filter="true" id="table"></table>
+        </div>
+    </div>
+</div>
+
+<div class="panel" data-style="panel" data-position="top" id="modal-evento" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="fade in" style="height: 100%"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+            <span><strong>Cadastro de </strong> Evento</span><span ng-if="evento.Nome.length > 0"> - {{evento.Nome}} </span> <span ng-show="evento.Dtatualizacao != null"> Data {{atualizacao}}: {{evento.Dtatualizacao}} </span>
+        </div>
+        <form id="formEvento" name="formEvento" ng-submit="Save()" class="modal-body">
+            <div class="nav-tabs3">
+                <ul class="nav nav-tabs nav-red">
+                    <li ng-class="{active: tab == 'tab0'}" ng-click="navTab('0')" class="active"><a data-toggle="tab"><i class="icon-home"></i> Dados do Evento</a></li>
+                    <li ng-class="{active: tab == 'tab1'}" ng-click="navTab('1')"> <a data-toggle="tab"><i class="icon-home"></i> {{informacoes}} Complementares</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane" id="tab0" ng-class="{active: tab == 'tab0'}">
+                        <div class="panel">
+                            <fieldset>
+                                <legend><strong>Dados do Evento</strong></legend>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="id" class="form-label">{{codigo}}</label>
+                                            <input type="number" ng-model="evento.Id" name="Codigo" class="form-control form-white" id="Codigo" placeholder="Codigo" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <!--Aqui voce colocou uma coluna dentro da outra nao pode-->
+                                        <div class="form-group">
+                                            <label for="Nome " class="form-label">Nome</label>
+                                            <input type="text" minlength="6" maxlength="250" ng-model="evento.Nome" name="Nome" class="form-control form-white" id="Nome" placeholder="Nome" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="Disponivel" class="form-label">Disponivel </label>
+                                                    <input type="checkbox" data-checkbox="icheckbox_square-blue" checked ng-model="evento.Disponivel" id="Disponivel" style="margin-left:23px;" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="Exibir Local" class="form-label">Exibir Local</label>
+                                                    <input type="checkbox" data-checkbox="icheckbox_square-blue" checked ng-model="evento.Exibirlocal" id="ExibirLocal" style="margin-left:23px;" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="ValorEvento" class="form-label">Valor Evento</label>
+                                            <input type="text" min="1" max="999999" ng-model="evento.Valorevento" name="Valorevento" class="form-control form-white" id="Valorevento" placeholder="Valor" pattern="^\d+(\.|\,)\d{2}$" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="QuantidadeVagas" class="form-label">Qtd. Vagas</label>
+                                            <input type="number" min="1" max="1000" ng-model="evento.Qtdvagas" name="Quantidadevagas" class="form-control form-white" id="Quantidadevagas" placeholder="Qtd. Vagas" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="Frequencia" class="form-label">Frequencia</label>
+                                            <input type="number" min="50" max="100" ng-model="evento.Frequencia" name="Frequencia" class="form-control form-white" id="Frequencia" placeholder="Frequencia" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for=" Evento" class="form-label">Tipo Evento</label>
+                                            <select class="form-control bg-success select-basic" data-search="true" id="Tipoevento" name="Tipoevento"
+                                                    ng-model="TipoEvento" ng-options="v.Descricao for v in tiposeventos track by v.Descricao">
+                                                <option value="">Selecione...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="Situacao" class="form-label">Situacao</label>
+                                            <select class="form-control bg-success select-basic" data-search="true" id="Situacao" name="Situacao"
+                                                    ng-model="SituacaoEvento" ng-options="v.Descricao for v in situacoes track by v.Descricao">
+                                                <option value="">Selecione...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="Inscricao" class="form-label">{{inscricao}}</label>
+                                            <select class="form-control bg-success select-basic" data-search="true" id="Inscricao" name="Inscricao"
+                                                    ng-model="Inscricao" ng-options="v.value for v in Inscricao track by v.value">
+                                                <option value="">Selecione...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend><strong>Local e Data de {{realizacao}}</strong></legend>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="Local" class="form-label">Local</label>
+                                            <select class="form-control bg-success select-basic" data-search="true" id="Localid" name="Localid"
+                                                    ng-model="Local" ng-options="v.Descricao for v in locaisevento track by v.Id">
+                                                <option value="">Selecione...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="Endereco" class="form-label">{{endereco}}</label>
+                                            <input type="text" minlength="6" maxlength="100" ng-model="evento.Endereco" name="Endereco" class="form-control form-white" id="Endereco" placeholder="Endereco" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="Inscdtinicio" class="form-label">Data {{inicio}}</label>
+                                            <div class="prepend-icon">
+                                                <input type="text" ng-model="Dtinicio" name="Dtinicio" class="date-picker form-control form-white" id="Dtinicio" required>
+                                                <i class="icon-calendar"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="Inscdttermino" class="form-label">Data {{termino}}</label>
+                                            <div class="prepend-icon">
+                                                <input type="text" ng-model="Dttermino" name="Dttermino" class="date-picker form-control form-white" id="Dttermino" required>
+                                                <i class="icon-calendar"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="Data Inicio" class="form-label">Hora {{inicio}} Evento</label>
+                                            <div class="prepend-icon">
+                                                <input type="text" ng-model="evento.Horainicio" name="Horainicio" class="form-control form-white" data-mask="99:99:99" id="Horainicio" required>
+                                                <i class="icon-clock"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="Data Termino" class="form-label">Hora {{termino}} Evento</label>
+                                            <div class="prepend-icon">
+                                                <input type="text" ng-model="evento.Horatermino" name="Horatermino" data-mask="99:99:99" class="form-control form-white" id="Horatermino" required>
+                                                <i class="icon-clock"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label for="Vecimento Boleto" class="form-label">Vecimento Boleto</label>
+                                            <div class="prepend-icon">
+                                                <input type="text" ng-model="evento.Vecimentoboleto" name="Vecimentoboleto" class="date-picker form-control form-white" id="Vecimentoboleto" required>
+                                                <i class="icon-calendar"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <fieldset>
+                                        <legend>Turnos</legend>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div ng-repeat="list in necessidades" class="col-sm-6">
+                                                        <div class="panel panel-info">
+                                                            <div class="panel-heading">{{list.ListName}}</div>
+                                                            <div class="panel-body">
+                                                                <ul dnd-list dnd-drop="callback({targetList: list, targetIndex: index})">
+                                                                    <li style="display:block !important" ng-repeat="item in list.items"
+                                                                        dnd-draggable="null" dnd-callback="onDrop(list, $index, targetList, targetIndex)">
+                                                                        {{item.Necessidade}}
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-9">
+                                    <fieldset>
+                                        <legend><strong>Datas do Evento</strong></legend>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="Inscdtinicio" class="form-label">Data {{inicio}}</label>
+                                                    <div class="prepend-icon">
+                                                        <input type="text" ng-model="eventodata.Dtinicio" name="eventodataDtinicio" class="date-picker form-control form-white" id="eventodataDtinicio">
+                                                        <i class="icon-calendar"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="Inscdttermino" class="form-label">Data {{termino}}</label>
+                                                    <div class="prepend-icon">
+                                                        <input type="text" ng-model="eventodata.Dttermino" name="eventodataDttermino" class="date-picker form-control form-white" id="eventodataDttermino">
+                                                        <i class="icon-calendar"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="Data Inicio" class="form-label">Hora {{inicio}} Evento</label>
+                                                    <div class="prepend-icon">
+                                                        <input type="text" ng-model="eventodata.Horainicio" name="eventodataHorainicio" class="form-control form-white" data-mask="99:99:99" id="eventodataHorainicio">
+                                                        <i class="icon-clock"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="Data Termino" class="form-label">Hora {{termino}} Evento</label>
+                                                    <div class="prepend-icon">
+                                                        <input type="text" ng-model="eventodata.Horatermino" name="eventodataHoratermino" data-mask="99:99:99" class="form-control form-white" id="eventodataHoratermino">
+                                                        <i class="icon-clock"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-group" style="margin-top:20px">
+                                                    <button type="button" ng-click="addEventoData()" class="btn btn-success btn-embossed"><i class="fa fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <fieldset>
+                                            <legend>Datas Selecionadas para o Evento</legend>
+                                            <table class="table table-hover dataTable no-footer" id="table-editable" role="grid" aria-describedby="table-editable_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th rowspan="1" colspan="1" aria-label="First Name" style="width: 285px;">Data {{inicio}}</th>
+                                                        <th rowspan="1" colspan="1" style="width: 334px;">Data {{termino}}</th>
+                                                        <th rowspan="1" colspan="1" style="width: 254px;">Hora {{inicio}}</th>
+                                                        <th rowspan="1" colspan="1" style="width: 279px;">Hora {{termino}}</th>
+                                                        <th class="text-right" rowspan="1" colspan="1" style="width: 298px;">{{acoes}}</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr role="row" class="odd" ng-repeat="item in evento.Eventodatas" id="row_{{item.Id}}">
+                                                        <td>{{item.Dtinicio}}</td>
+                                                        <td>{{item.Dttermino}}</td>
+                                                        <td>{{item.Horainicio}}</td>
+                                                        <td>{{item.Horatermino}}</td>
+                                                        <td class="text-right">
+                                                            <a class="delete btn btn-sm btn-danger" ng-click="removeEventoData(item.Id)"><i class="icons-office-52"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </fieldset>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab1" ng-class="{active: tab == 'tab1'}">
+                        <div class="panel">
+                            <fieldset>
+                                <legend><strong>{{informacoes}} Complementares</strong></legend>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="nav-tabs2">
+                                            <ul class="nav nav-tabs nav-red">
+                                                <li style="display:block !important" ng-class="{true:'active', false:''}[tabinfo == 0]"><a ng-click="navTabInfo('0')" data-toggle="tab"><i class="icon-home"></i> {{descricao}}</a></li>
+                                                <li style="display:block !important" ng-class="{true:'active', false:''}[tabinfo == 1]"><a ng-click="navTabInfo('1')" data-toggle="tab"><i class="icon-user"></i> Mensagem para {{exibicao}} nos boletos</a></li>
+                                                <li style="display:block !important" ng-class="{true:'active', false:''}[tabinfo == 2]"><a ng-click="navTabInfo('2')" data-toggle="tab"><i class="icon-cloud-download"></i> Texto para ser exibido no Comprovante de {{inscricao}}</a></li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane" ng-show="tabinfo == 0" ng-hide="tabinfo != 0" ng-class="{true:'active', false:''}[tabinfo == 0]" id="tab0">
+                                                    <div class="form-group">
+                                                        <summernote airMode id="Descricao" on-change="change(contents)" ng-model="evento.Descricao" max-height="100px" height="100px">
+                                                        </summernote>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" ng-show="tabinfo == 1" ng-hide="tabinfo != 1" ng-class="{true:'active', false:''}[tabinfo == 1]" id="tab1">
+                                                    <div class="form-group">
+                                                        <summernote airMode id="Mensagemboleto" ng-model="evento.Mensagemboleto" on-change="change(contents)" max-height="100px" height="100px">
+                                                        </summernote>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" ng-show="tabinfo == 2" ng-hide="tabinfo != 2" ng-class="{true:'active', false:''}[tabinfo == 2]" id="tab2">
+                                                    <div class="form-group">
+                                                        <summernote airMode id="Mensagemcomprovante" ng-model="evento.Mensagemcomprovante" on-change="change(contents)" max-height="100px" height="100px">
+                                                        </summernote>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

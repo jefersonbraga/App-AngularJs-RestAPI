@@ -1,0 +1,101 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 11/13/2017 12:36:56 PM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>Menu</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li>
+                <a href="#">Menu</a>
+            </li>
+            <li class="active">Tabs</li>
+        </ol>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-header panel-controls">
+        <h3>
+            <strong>Pesquisa </strong> 
+        </h3>
+        <div class="control-btn">
+            <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-blue"><i class="fa fa-plus"></i>Novo</button>
+        </div>
+    </div>
+    <div class="panel-content">
+		<table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+    </div>
+</div>
+<div class="modal" data-style="panel" data-position="top" id="modal-Menu" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="modal-backdrop fade in" style="height: 100%"></div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                <h4 class="modal-title"><strong>Cadastro de </strong> Menu</h4>
+            </div>
+            <div class="modal-body">
+                										;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Id" class="form-label">Id</label>
+							<input type="number" ng-model="Menu.Id"  name="Id" class="form-control" id="Id" placeholder="Id" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Menu" class="form-label">Menu</label>
+							<input type="text" min="3" max="Menu" ng-model="Menu.Menu"  name="Menu" class="form-control" id="Menu" placeholder="Menu" required>
+						</div>
+					</div>
+				</div>														;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Acoesid" class="form-label">Acoesid</label>
+							<input type="number" ng-model="Menu.Acoesid"  name="Acoesid" class="form-control" id="Acoesid" placeholder="Acoesid" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Link" class="form-label">Link</label>
+							<input type="text" min="3" max="Link" ng-model="Menu.Link"  name="Link" class="form-control" id="Link" placeholder="Link" required>
+						</div>
+					</div>
+				</div>														;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Ordem" class="form-label">Ordem</label>
+							<input type="number" ng-model="Menu.Ordem"  name="Ordem" class="form-control" id="Ordem" placeholder="Ordem" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<p>
+								<label for="Ativo" class="form-label">Ativo</label>
+							</p>
+							<div class="select-blue">
+								<input class="select-checkbox checked" tabindex="10" ng-model="Menu.Ativo" type="checkbox" id="Ativo">
+							</div>
+						</div>
+					</div>
+				</div>
+									            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

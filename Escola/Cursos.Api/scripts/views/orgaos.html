@@ -1,0 +1,73 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 11/13/2017 12:36:56 PM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>Orgaos</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li>
+                <a href="#">Orgaos</a>
+            </li>
+            <li class="active">Tabs</li>
+        </ol>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-header panel-controls">
+        <h3>
+            <strong>Pesquisa </strong> 
+        </h3>
+        <div class="control-btn">
+            <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-blue"><i class="fa fa-plus"></i>Novo</button>
+        </div>
+    </div>
+    <div class="panel-content">
+		<table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+    </div>
+</div>
+<div class="modal" data-style="panel" data-position="top" id="modal-Orgaos" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="modal-backdrop fade in" style="height: 100%"></div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                <h4 class="modal-title"><strong>Cadastro de </strong> Orgaos</h4>
+            </div>
+            <div class="modal-body">
+                										;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Id" class="form-label">Id</label>
+							<input type="number" ng-model="Orgaos.Id"  name="Id" class="form-control" id="Id" placeholder="Id" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Orgao" class="form-label">Orgao</label>
+							<input type="text" min="3" max="Orgao" ng-model="Orgaos.Orgao"  name="Orgao" class="form-control" id="Orgao" placeholder="Orgao" required>
+						</div>
+					</div>
+				</div>														;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Idorgaoantigo" class="form-label">Idorgaoantigo</label>
+							<input type="number" ng-model="Orgaos.Idorgaoantigo"  name="Idorgaoantigo" class="form-control" id="Idorgaoantigo" placeholder="Idorgaoantigo" required>
+						</div>
+					</div>
+				</div>
+									            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

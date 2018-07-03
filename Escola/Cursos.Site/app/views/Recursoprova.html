@@ -1,0 +1,74 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 11/13/2017 12:36:56 PM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>Recurso Prova</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li>
+                <a href="#">Recurso Prova</a>
+            </li>
+            <li class="active">Tabs</li>
+        </ol>
+    </div>
+</div>
+<div class="panel" data-style="panel" data-position="top" id="panel-pesquisa">
+    <div class="fade in"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <span class="modal-title">
+                <strong>Pesquisa de registros</strong>
+            </span>
+            <div class="control-btn">
+                <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-dark"><i class="fa fa-plus"></i> Novo</button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+        </div>
+    </div>
+</div>
+<div class="panel" data-style="panel" data-position="top" id="modal-Recursoprova" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="fade in" style=" height: 100%"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+            <h4 class="modal-title"><strong>Cadastro de </strong> Recurso para Prova</h4>
+        </div>
+        <form class="modal-body">
+            <div class="nav-tabs3">
+                <ul class="nav nav-tabs nav-red">
+                    <li ng-class="{active: tab == 'tab0'}" class="active" ng-click="navTab(0)"><a data-toggle="tab"><i class="icon-home"></i> Recurso</a></li>
+                    <li ng-class="{active: tab == 'tab1'}" ng-click="navTab(1)"><a data-toggle="tab"><i class="icon-home"></i> Grupo de {{questoes}}</a></li>
+                    <li ng-class="{active: tab == 'tab2'}" ng-click="navTab(2)"><a data-toggle="tab"><i class="icon-home"></i> {{questoes}} da Prova</a></li>
+                    <li ng-class="{active: tab == 'tab3'}" ng-click="navTab(3)"><a data-toggle="tab"><i class="icon-home"></i> Quesitos de {{questoes}}</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane" id="tab0" ng-class="{active: tab == 'tab0'}">
+                        <div>
+                            <div ng-include="'app/views/recursoprovatab.html'"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab1" ng-class="{active: tab == 'tab1'}">
+                        <div ng-controller="GrupodequestoesController">
+                            <div ng-include="'app/views/Grupodequestoes.html'"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab2" ng-class="{active: tab == 'tab2'}">
+                        <div ng-controller="ProvaquestoesController">
+                            <div ng-include="'app/views/Provaquestoes.html'"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab3" ng-class="{active: tab == 'tab3'}">
+                        <div ng-controller="QuestoescorrecaoController">
+                            <div ng-include="'app/views/Questoescorrecao.html'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

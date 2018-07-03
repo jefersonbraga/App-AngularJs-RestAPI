@@ -1,0 +1,122 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 11/13/2017 12:36:56 PM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>Localprova</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li>
+                <a href="#">Localprova</a>
+            </li>
+            <li class="active">Tabs</li>
+        </ol>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-header panel-controls">
+        <h3>
+            <strong>Pesquisa </strong> 
+        </h3>
+        <div class="control-btn">
+            <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-blue"><i class="fa fa-plus"></i>Novo</button>
+        </div>
+    </div>
+    <div class="panel-content">
+		<table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+    </div>
+</div>
+<div class="modal" data-style="panel" data-position="top" id="modal-Localprova" aria-hidden="false" style="display: none" data-action="none">
+    <div class="modal-backdrop fade in" style="height: 100%"></div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                <h4 class="modal-title"><strong>Cadastro de </strong> Local prova</h4>
+            </div>
+            <div class="modal-body">
+                										
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Id" class="form-label">Id</label>
+							<input type="number" ng-model="Localprova.Id"  name="Id" class="form-control" id="Id" placeholder="Id" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Local" class="form-label">Local</label>
+							<input type="text" min="3" max="Local" ng-model="Localprova.Local"  name="Local" class="form-control" id="Local" placeholder="Local" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Cep" class="form-label">Cep</label>
+							<input type="text" min="3" max="Cep" ng-model="Localprova.Cep"  name="Cep" class="form-control" id="Cep" placeholder="Cep" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Logradouro" class="form-label">Logradouro</label>
+							<input type="text" min="3" max="Logradouro" ng-model="Localprova.Logradouro"  name="Logradouro" class="form-control" id="Logradouro" placeholder="Logradouro" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Endereco" class="form-label">Endereco</label>
+							<input type="text" min="3" max="Endereco" ng-model="Localprova.Endereco"  name="Endereco" class="form-control" id="Endereco" placeholder="Endereco" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Bairro" class="form-label">Bairro</label>
+							<input type="text" min="3" max="Bairro" ng-model="Localprova.Bairro"  name="Bairro" class="form-control" id="Bairro" placeholder="Bairro" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Complemento" class="form-label">Complemento</label>
+							<input type="text" min="3" max="Complemento" ng-model="Localprova.Complemento"  name="Complemento" class="form-control" id="Complemento" placeholder="Complemento" required>
+						</div>
+					</div>
+				</div>														
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Numero" class="form-label">Numero</label>
+							<input type="number" ng-model="Localprova.Numero"  name="Numero" class="form-control" id="Numero" placeholder="Numero" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Cidade" class="form-label">Cidade</label>
+							<input type="text" min="3" max="Cidade" ng-model="Localprova.Cidade"  name="Cidade" class="form-control" id="Cidade" placeholder="Cidade" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Estado" class="form-label">Estado</label>
+							<input type="text" min="3" max="Estado" ng-model="Localprova.Estado"  name="Estado" class="form-control" id="Estado" placeholder="Estado" required>
+						</div>
+					</div>
+				</div>				            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

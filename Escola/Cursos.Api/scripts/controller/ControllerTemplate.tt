@@ -1,0 +1,193 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@include file="../MultipleOutputHelper.ttinclude" #>
+
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+<# manager.StartHeader(); 
+string dataHoraGeracao = DateTime.Now.ToString();
+var listTablesNotLoad = new List<string>() {"__MigrationHistory","AspNetRoles","AspNetUserLogins","AspNetUserClaims","AspNetUserRoles","AspNetUsers","AD_REFRESHTOKENHISTORY","AD_REFRESHTOKEN"}; #>
+///// <sumary>
+///// By: Jeferson Braga do Carmo Create Date: 18/09/2017
+///// Last Update: <#=dataHoraGeracao#>
+
+///// Para outros metodos implementar classe partial
+///// </sumary>
+<# manager.EndBlock(); #>
+ 
+<# foreach (var entity in GetTables())
+   {
+	  
+	  if(listTablesNotLoad.Where(stringToCheck => stringToCheck.Equals(entity)).ToList().Count > 0)
+		continue;
+
+	  var className = string.Empty;
+		try 
+		{	        
+			var arrayEntity = entity.Split('_');
+			className = arrayEntity[1].Substring(0,1)+arrayEntity[1].ToLower().Substring(1,arrayEntity[1].Length -1);
+		}
+		catch
+		{
+			continue;
+		}
+	  #>
+	  //<script src="app/controllers/<#=className#>Controller.js?v=2"></script>
+	  <#
+      manager.StartNewFile(className + "Controller.js"); 
+	  var module = className;
+#>
+"use strict";
+app.controller("<#=module#>Controller", ['$scope', '<#=module#>Service', 'NotyService', function ($scope, <#=module#>Service, notyService) {
+		$scope.tblData = [];
+		$scope.<#=module#> = {};
+        $scope.showModal = function (action) {
+			if(action === "new")
+				$scope.<#=module#> = {};
+
+			document.getElementById("modal-<#=module#>").style.display = "block";
+            $("#modal-<#=module#>").removeClass().addClass("modal bounceInRight animated active");
+            $(".header").removeClass("active");
+            $(".modal").data("action", action);
+        }
+
+		$scope.exitModal = function () {
+			$("#modal-<#=module#>").removeClass().addClass("modal bounceOut animated");
+            $(".header").removeClass("preview active");
+            $(".modal").data("action", "none");
+        }
+
+		$scope.Edit = function (row) {
+			//$timeout($scope.increment, 1000);
+			$scope.$apply(function() {
+			  $scope.<#=module#> = row;
+			});
+            $("#name").val($scope.<#=module#>.Name);
+            if (!$scope.<#=module#>.Active) {
+                $("#active").parent().removeClass("checked");
+            } else {
+                $("#active").parent().addClass("checked");
+            }
+            $scope.showModal("edit");
+        }
+		
+		var getAll = function () {
+            <#=module#>Service.GetAll(function (response) {
+                if (response.status === 200) {
+					var emptyData = jQuery.isEmptyObject(response.data[0]);
+					if(emptyData) return;
+                    $scope.tblData = response.data;
+                } else {
+                    var message = "";
+                    for (var item in response.data) {
+                        if (response.data.hasOwnProperty(item)) {
+                            message += response.data[item];
+                        }
+                    }
+                    notyService.Noty("Erro", message, notyService.Type.Danger, false, function (n) { return n; });
+                }
+            });
+		};
+
+        $scope.Save = function () {
+		    var action = $(".modal").data("action");
+		    if (action === "new") {
+		        <#=module#>Service.Post($scope.<#=module#>, function (response) {
+		            if (response.status === 200 || response.status === 201) {
+		                notyService.Noty("Informação", "Cadastro realizado com sucesso! ", notyService.Type.Success, false, function (n) { return n; });
+		            } else {
+		                var message = "";
+		                for (var item in response.data) {
+		                    if (response.data.hasOwnProperty(item)) {
+		                        if (item === "$id") continue;
+		                        message += response.data[item];
+		                    }
+		                }
+		                notyService.Noty("Wescola ocorreu erro ao salvar registro favor contatar suporte do sistema!", message, notyService.Type.Danger, false, function (n) { return n; });
+		            }
+		        });
+		    } else if (action === "edit") {
+		        <#=module#>Service.GetById($scope.<#=module#>.Id, function (response) {
+		            if (response.status === 200) {
+		                if (!response.data) {
+		                    notyService.Noty("Alerta!", "Não foi localizado o registro favor contate o suporte!", notyService.Type.Warning, false, function (n) { return n; });
+		                    return;
+		                }
+		               
+		                var equal = angular.equals($scope.<#=module#>, response.data[0]);
+		                if (equal) {
+		                    notyService.Noty("Informacao!", "Não teve alterações no registro, não e possivel salvar.", notyService.Type.Info, false, function (n) { return n; });
+		                    return;
+		                }
+		                <#=module#>Service.Put($scope.<#=module#>, function (response) {
+		                    if (response.status === 200 || response.status === 201) {
+		                        notyService.Noty("Informação", response.data + " registro atualizado com sucesso! ", notyService.Type.Success, false, function (n) { return n; });
+		                        getAll();
+		                    } else {
+		                        var message = "";
+		                        for (var item in response.data) {
+		                            if (response.data.hasOwnProperty(item)) {
+		                                message += response.data[item];
+		                            }
+		                        }
+		                        notyService.Noty("Wescola ocorreu erro ao atualizar registro favor contatar suporte do sistema!", message, notyService.Type.Danger, false, function (n) { return n; });
+		                    }
+		                });
+		            } else {
+		                var message = "";
+		                for (var item in response.data) {
+		                    if (response.data.hasOwnProperty(item)) {
+		                        message += response.data[item];
+		                    }
+		                }
+		                notyService.Noty("Erro", message, notyService.Type.Danger, false, function (n) { return n; });
+		            }
+		        });
+		    }
+		}
+		$scope.Delete = function (nRow) {
+		    var entity = nRow;
+		    notyService.Noty("Confirmacao", "Deseja excluir este registro: "+entity.Name+"? ", notyService.Type.Warning, true, function (confimation) {
+		        if (confimation) {
+		            <#=module#>Service.Delete(entity, function (response) {
+		                if (response.status === 200 || response.status === 201) {
+		                    oTable.fnDeleteRow(nRow);
+		                    notyService.Noty("Informacao", "Registro excluido com sucesso!", notyService.Type.Success, false, function (n) { return n; });
+		                } else {
+		                    var message = "";
+		                    for (var item in response.data) {
+		                        if (response.data.hasOwnProperty(item)) {
+		                            message += response.data[item];
+		                        }
+		                    }
+		                    notyService.Noty("Wescola ocorreu erro ao excluir registro favor contatar suporte do sistema!", message, notyService.Type.Danger, false, function (n) { return n; });
+		                }
+		            });
+		        }
+		    });
+		}
+
+		$scope.Columns = [
+        <#foreach (DataRow oRow in GetColumns(entity).Rows){
+			var columName = oRow[0].ToString().Substring(0,1) + oRow[0].ToString().ToLower().Substring(1,oRow[0].ToString().Length - 1);
+			if(oRow[1].ToString() == "int") {#>
+				{ field: "<#=columName#>", title: "<#=columName#>", sortable: false, visible:false },
+			<#}else if(oRow[1].ToString() == "bit") {#>
+				{ field: "<#=columName#>", title: "<#=columName#>", sortable: true, checkbox:true },
+            <#}else {#>
+				{ field: "<#=columName#>", title: "<#=columName#>", sortable: true },
+			<#}
+		}#>
+		];
+
+		getAll();
+    }]);
+<#     
+      manager.EndBlock();
+   }
+#>
+ 
+<# manager.StartFooter(); #>
+
+<# manager.EndBlock(); #>
+ 
+<# manager.Process(true); #>

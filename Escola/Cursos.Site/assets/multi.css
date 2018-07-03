@@ -1,0 +1,20 @@
+﻿ul[dnd-list] {
+    min-height: 10px;
+    padding: 0;
+}
+
+    ul[dnd-list] > li {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        padding: 2px -1px;
+        /*font-size: 12px !important;*/
+    }
+
+        ul[dnd-list] > li.dndDraggingSource {
+            display: none;
+        }
+
+        ul[dnd-list] > li.dndPlaceholder {
+            background-color: #ddd;
+            min-height: 10px;
+        }

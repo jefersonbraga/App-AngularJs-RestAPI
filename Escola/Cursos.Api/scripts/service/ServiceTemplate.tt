@@ -1,0 +1,100 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@include file="../MultipleOutputHelper.ttinclude" #>
+
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+<# manager.StartHeader(); 
+string dataHoraGeracao = DateTime.Now.ToString();
+var listTablesNotLoad = new List<string>() {"__MigrationHistory","AspNetRoles","AspNetUserLogins","AspNetUserClaims","AspNetUserRoles","AspNetUsers","AD_REFRESHTOKENHISTORY","AD_REFRESHTOKEN"}; #>
+///// <sumary>
+///// By: Jeferson Braga do Carmo Create Date: 25/11/2015
+///// Last Update: <#=dataHoraGeracao#>
+///// Gerado automaticamente para alteracoes dos metodos comum alterar o template
+///// </sumary>
+<# manager.EndBlock(); #>
+ 
+<# foreach (var entity in GetTables())
+   {
+	  
+	  if(listTablesNotLoad.Where(stringToCheck => stringToCheck.Equals(entity)).ToList().Count > 0)
+		continue;
+
+		var className = string.Empty;
+		try 
+		{	        
+			var arrayEntity = entity.Split('_');
+			className = arrayEntity[1].Substring(0,1)+arrayEntity[1].ToLower().Substring(1,arrayEntity[1].Length -1);
+		}
+		catch
+		{
+			continue;
+		}
+	 
+      #>
+	  //<script src="app/services/<#=className#>Service.js?v=2"></script>
+	  <#
+	  manager.StartNewFile(className + "Service.js"); 
+
+	  var module = className;
+#>
+"use strict";
+app.factory("<#=module#>Service", ["$http", "ngAuthSettings", function ($http, ngAuthSettings) {
+        var service = {};
+		var serviceBase = ngAuthSettings.apiServiceBaseUri;
+        service.GetAll = function (callback) {
+            $http.get(serviceBase + "<#=module#>/getall")
+                .then(function (response) {
+                    callback(response);
+                }, function (response) {
+                    callback(response);
+                });
+        };
+
+        service.GetById = function (id, callback) {
+            $http.get(serviceBase + "<#=module#>/getbyid/" + id)
+               .then(function (response) {
+                    callback(response);
+                }, function (response) {
+                    callback(response);
+                });
+        };
+
+        service.Post = function (<#=module#>, callback) {
+            $http.post(serviceBase + "<#=module#>/post", <#=module#>)
+                .then(function (response) {
+                    callback(response);
+                }, function (response) {
+                    callback(response);
+                });
+        };
+
+        service.Put = function (<#=module#>, callback) {
+            $http.post(serviceBase + "<#=module#>/put", <#=module#>)
+                .then(function (response) {
+                    callback(response);
+                }, function (response) {
+                    callback(response);
+                });
+        };
+
+		service.Delete = function (<#=module#>, callback) {
+            $http.post(serviceBase + "<#=module#>/delete", <#=module#>)
+                .then(function (response) {
+                    callback(response);
+                }, function (response) {
+                    callback(response);
+                });
+        };
+
+        return service;
+    }]);
+<#     
+      manager.EndBlock();
+   }
+#>
+ 
+<# manager.StartFooter(); #>
+
+<# manager.EndBlock(); #>
+ 
+<# manager.Process(true); #>

@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-xlg-5 col-lg-5">
+        <div class="panel">
+            <div class="panel-header panel-controls">
+                <h3><i class="icon-list"></i> <strong>Lista</strong> dos Ultimos 10 Cadastros</h3>
+            </div>
+            <div class="panel-content" style="font-size:12px">
+                <table class="table" ng-show="clientes.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Email</th>
+                            <th>Tel. Celular</th>
+                            <th>Cadastro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="active" ng-repeat="x in clientes">
+                            <td>{{x.Nome}}</td>
+                            <td>{{x.Email}}</td>
+                            <td>{{x.Telcelular}}</td>
+                            <td>{{x.Dtregistro}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-xlg-5 col-lg-5">
+        <div class="panel">
+            <div class="panel-header panel-controls">
+                <h3><i class="icon-list"></i> <strong>Lista</strong> dos Ultimos 10 Inscritos</h3>
+            </div>
+            <div class="panel-content" style="font-size:12px">
+                <table class="table" ng-show="inscricoes.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Evento</th>
+                            <th>Nome Cliente</th>
+                            <th>Inscrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="active" ng-repeat="x in inscricoes">
+                            <td>{{x.Evento}}</td>
+                            <td>{{x.NomeCliente}}</td>
+                            <td>{{x.Dtinscricao}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-xlg-2 hidden-lg col-clock">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="jquery-clock small" data-jquery-clock="">
+                    <li class="jquery-clock-pin"></li>
+                    <li class="jquery-clock-sec"></li>
+                    <li class="jquery-clock-min"></li>
+                    <li class="jquery-clock-hour"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget-progress-bar">
+                    <!--<div class="clearfix">
+                        <div class="title">Inscrições Completas</div>
+                        <div class="number">82%</div>
+                    </div>-->
+                    <!--<div class="progress">
+                        <div class="progress-bar progress-bar-primary stat1" data-transitiongoal="82"></div>
+                    </div>-->
+                    <!--<div class="clearfix">
+                        <div class="title">Answer Emails</div>
+                        <div class="number">43%</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-primary stat2" data-transitiongoal="43"></div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

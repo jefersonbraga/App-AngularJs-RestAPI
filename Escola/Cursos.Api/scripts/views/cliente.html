@@ -1,0 +1,379 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 11/13/2017 12:36:56 PM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>Cliente</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li>
+                <a href="#">Cliente</a>
+            </li>
+            <li class="active">Tabs</li>
+        </ol>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-header panel-controls">
+        <h3>
+            <strong>Pesquisa </strong> 
+        </h3>
+        <div class="control-btn">
+            <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-blue"><i class="fa fa-plus"></i>Novo</button>
+        </div>
+    </div>
+    <div class="panel-content">
+		<table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+    </div>
+</div>
+<div class="modal" data-style="panel" data-position="top" id="modal-Cliente" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="modal-backdrop fade in" style="height: 100%"></div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                <h4 class="modal-title"><strong>Cadastro de </strong> Cliente</h4>
+            </div>
+            <div class="modal-body">
+                										;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Id" class="form-label">Id</label>
+							<input type="number" ng-model="Cliente.Id"  name="Id" class="form-control" id="Id" placeholder="Id" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Userid" class="form-label">Userid</label>
+							<input type="text" min="3" max="Userid" ng-model="Cliente.Userid"  name="Userid" class="form-control" id="Userid" placeholder="Userid" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Nome" class="form-label">Nome</label>
+							<input type="text" min="3" max="Nome" ng-model="Cliente.Nome"  name="Nome" class="form-control" id="Nome" placeholder="Nome" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Email" class="form-label">Email</label>
+							<input type="text" min="3" max="Email" ng-model="Cliente.Email"  name="Email" class="form-control" id="Email" placeholder="Email" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Rg" class="form-label">Rg</label>
+							<input type="text" min="3" max="Rg" ng-model="Cliente.Rg"  name="Rg" class="form-control" id="Rg" placeholder="Rg" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Orgaoemissor" class="form-label">Orgaoemissor</label>
+							<input type="text" min="3" max="Orgaoemissor" ng-model="Cliente.Orgaoemissor"  name="Orgaoemissor" class="form-control" id="Orgaoemissor" placeholder="Orgaoemissor" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Ufemissor" class="form-label">Ufemissor</label>
+							<input type="text" min="3" max="Ufemissor" ng-model="Cliente.Ufemissor"  name="Ufemissor" class="form-control" id="Ufemissor" placeholder="Ufemissor" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtemissao" class="form-label">Dtemissao</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Cliente.Dtemissao" name="datepicker" class="date-picker form-control" id="Dtemissao placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Cpf" class="form-label">Cpf</label>
+							<input type="text" min="3" max="Cpf" ng-model="Cliente.Cpf"  name="Cpf" class="form-control" id="Cpf" placeholder="Cpf" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Nacionalidade" class="form-label">Nacionalidade</label>
+							<input type="text" min="3" max="Nacionalidade" ng-model="Cliente.Nacionalidade"  name="Nacionalidade" class="form-control" id="Nacionalidade" placeholder="Nacionalidade" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Naturalidade" class="form-label">Naturalidade</label>
+							<input type="text" min="3" max="Naturalidade" ng-model="Cliente.Naturalidade"  name="Naturalidade" class="form-control" id="Naturalidade" placeholder="Naturalidade" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtnascimento" class="form-label">Dtnascimento</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Cliente.Dtnascimento" name="datepicker" class="date-picker form-control" id="Dtnascimento placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Sexo" class="form-label">Sexo</label>
+							<input type="text" min="3" max="Sexo" ng-model="Cliente.Sexo"  name="Sexo" class="form-control" id="Sexo" placeholder="Sexo" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Nomepai" class="form-label">Nomepai</label>
+							<input type="text" min="3" max="Nomepai" ng-model="Cliente.Nomepai"  name="Nomepai" class="form-control" id="Nomepai" placeholder="Nomepai" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Nomemae" class="form-label">Nomemae</label>
+							<input type="text" min="3" max="Nomemae" ng-model="Cliente.Nomemae"  name="Nomemae" class="form-control" id="Nomemae" placeholder="Nomemae" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Cep" class="form-label">Cep</label>
+							<input type="text" min="3" max="Cep" ng-model="Cliente.Cep"  name="Cep" class="form-control" id="Cep" placeholder="Cep" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Endereco" class="form-label">Endereco</label>
+							<input type="text" min="3" max="Endereco" ng-model="Cliente.Endereco"  name="Endereco" class="form-control" id="Endereco" placeholder="Endereco" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Bairro" class="form-label">Bairro</label>
+							<input type="text" min="3" max="Bairro" ng-model="Cliente.Bairro"  name="Bairro" class="form-control" id="Bairro" placeholder="Bairro" required>
+						</div>
+					</div>
+				</div>														;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Numero" class="form-label">Numero</label>
+							<input type="number" ng-model="Cliente.Numero"  name="Numero" class="form-control" id="Numero" placeholder="Numero" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Complemento" class="form-label">Complemento</label>
+							<input type="text" min="3" max="Complemento" ng-model="Cliente.Complemento"  name="Complemento" class="form-control" id="Complemento" placeholder="Complemento" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Cidade" class="form-label">Cidade</label>
+							<input type="text" min="3" max="Cidade" ng-model="Cliente.Cidade"  name="Cidade" class="form-control" id="Cidade" placeholder="Cidade" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Estado" class="form-label">Estado</label>
+							<input type="text" min="3" max="Estado" ng-model="Cliente.Estado"  name="Estado" class="form-control" id="Estado" placeholder="Estado" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Telresidencial" class="form-label">Telresidencial</label>
+							<input type="text" min="3" max="Tel_residencial" ng-model="Cliente.Telresidencial"  name="Telresidencial" class="form-control" id="Telresidencial" placeholder="Telresidencial" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Telcomercial" class="form-label">Telcomercial</label>
+							<input type="text" min="3" max="Tel_comercial" ng-model="Cliente.Telcomercial"  name="Telcomercial" class="form-control" id="Telcomercial" placeholder="Telcomercial" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Telcelular" class="form-label">Telcelular</label>
+							<input type="text" min="3" max="Tel_celular" ng-model="Cliente.Telcelular"  name="Telcelular" class="form-control" id="Telcelular" placeholder="Telcelular" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Senha" class="form-label">Senha</label>
+							<input type="text" min="3" max="Senha" ng-model="Cliente.Senha"  name="Senha" class="form-control" id="Senha" placeholder="Senha" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Cadadministracao" class="form-label">Cadadministracao</label>
+							<input type="text" min="3" max="Cad_administracao" ng-model="Cliente.Cadadministracao"  name="Cadadministracao" class="form-control" id="Cadadministracao" placeholder="Cadadministracao" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Enviosenha" class="form-label">Enviosenha</label>
+							<input type="text" min="3" max="Envio_senha" ng-model="Cliente.Enviosenha"  name="Enviosenha" class="form-control" id="Enviosenha" placeholder="Enviosenha" required>
+						</div>
+					</div>
+				</div>														;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Orgaotrabalhoid" class="form-label">Orgaotrabalhoid</label>
+							<input type="number" ng-model="Cliente.Orgaotrabalhoid"  name="Orgaotrabalhoid" class="form-control" id="Orgaotrabalhoid" placeholder="Orgaotrabalhoid" required>
+						</div>
+					</div>
+				</div>
+																			;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Escolaridadeid" class="form-label">Escolaridadeid</label>
+							<input type="number" ng-model="Cliente.Escolaridadeid"  name="Escolaridadeid" class="form-control" id="Escolaridadeid" placeholder="Escolaridadeid" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Instituicao" class="form-label">Instituicao</label>
+							<input type="text" min="3" max="Instituicao" ng-model="Cliente.Instituicao"  name="Instituicao" class="form-control" id="Instituicao" placeholder="Instituicao" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtconclusao" class="form-label">Dtconclusao</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Cliente.Dtconclusao" name="datepicker" class="date-picker form-control" id="Dtconclusao placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtregistro" class="form-label">Dtregistro</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Cliente.Dtregistro" name="datepicker" class="date-picker form-control" id="Dtregistro placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtultimaalteracao" class="form-label">Dtultimaalteracao</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Cliente.Dtultimaalteracao" name="datepicker" class="date-picker form-control" id="Dtultimaalteracao placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtultimoacesso" class="form-label">Dtultimoacesso</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Cliente.Dtultimoacesso" name="datepicker" class="date-picker form-control" id="Dtultimoacesso placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																																	;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Idorgaoantigo" class="form-label">Idorgaoantigo</label>
+							<input type="number" ng-model="Cliente.Idorgaoantigo"  name="Idorgaoantigo" class="form-control" id="Idorgaoantigo" placeholder="Idorgaoantigo" required>
+						</div>
+					</div>
+				</div>
+																			;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Idescolaridadeantigo" class="form-label">Idescolaridadeantigo</label>
+							<input type="number" ng-model="Cliente.Idescolaridadeantigo"  name="Idescolaridadeantigo" class="form-control" id="Idescolaridadeantigo" placeholder="Idescolaridadeantigo" required>
+						</div>
+					</div>
+				</div>
+																			;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Qtdacesso" class="form-label">Qtdacesso</label>
+							<input type="number" ng-model="Cliente.Qtdacesso"  name="Qtdacesso" class="form-control" id="Qtdacesso" placeholder="Qtdacesso" required>
+						</div>
+					</div>
+				</div>
+																			;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Receberfeeds" class="form-label">Receberfeeds</label>
+							<input type="number" ng-model="Cliente.Receberfeeds"  name="Receberfeeds" class="form-control" id="Receberfeeds" placeholder="Receberfeeds" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtexclusao" class="form-label">Dtexclusao</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Cliente.Dtexclusao" name="datepicker" class="date-picker form-control" id="Dtexclusao placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+									            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

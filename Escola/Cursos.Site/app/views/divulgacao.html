@@ -1,0 +1,73 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 9/19/2017 1:26:50 AM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>{{title}}</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li class="active">{{title}}</li>
+        </ol>
+    </div>
+</div>
+<div class="panel" data-style="panel" data-position="top" id="panel-pesquisa">
+    <div class="fade in" style=" height: 100%"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <span class="modal-title">
+                <strong>Pesquisa de registros</strong>
+            </span>
+            <div class="control-btn">
+                <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-dark"><i class="fa fa-plus"></i> Novo</button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+        </div>
+    </div>
+</div>
+
+<div class="panel" data-style="panel" data-position="top" id="modal-divulgacao" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="fade in"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+            <h4 class="modal-title"><strong>Cadastro de </strong> {{title}}</h4>
+        </div>
+        <form class="modal-body" id="formDivulgacao" ng-submit="Save()">
+            <fieldset>
+                <legend><strong>Mailing - Novo Texto</strong></legend>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="hidden" ng-model="divulgacao.Id" name="Id" class="form-control" id="Id" placeholder="Id" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="Titulo" class="form-label">Titulo</label>
+                            <input type="text" min="3" max="Titulo" ng-model="divulgacao.Titulo" name="Titulo" class="form-control" id="Titulo" placeholder="Titulo" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="Mensagem" class="form-label">Texto</label>
+                            <summernote airMode id="Mensagem" on-change="change(contents)" max-height="300px" height="300px">
+                            </summernote>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="modal-footer">
+                <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

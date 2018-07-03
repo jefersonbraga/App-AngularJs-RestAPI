@@ -1,0 +1,109 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 11/13/2017 12:36:56 PM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>Provaquestoes</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li>
+                <a href="#">Provaquestoes</a>
+            </li>
+            <li class="active">Tabs</li>
+        </ol>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-header panel-controls">
+        <h3>
+            <strong>Pesquisa </strong> 
+        </h3>
+        <div class="control-btn">
+            <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-blue"><i class="fa fa-plus"></i>Novo</button>
+        </div>
+    </div>
+    <div class="panel-content">
+		<table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+    </div>
+</div>
+<div class="modal" data-style="panel" data-position="top" id="modal-Provaquestoes" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="modal-backdrop fade in" style="height: 100%"></div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                <h4 class="modal-title"><strong>Cadastro de </strong> Provaquestoes</h4>
+            </div>
+            <div class="modal-body">
+                										;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Id" class="form-label">Id</label>
+							<input type="number" ng-model="Provaquestoes.Id"  name="Id" class="form-control" id="Id" placeholder="Id" required>
+						</div>
+					</div>
+				</div>
+																			;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Grupoquestoesid" class="form-label">Grupoquestoesid</label>
+							<input type="number" ng-model="Provaquestoes.Grupoquestoesid"  name="Grupoquestoesid" class="form-control" id="Grupoquestoesid" placeholder="Grupoquestoesid" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Descricao" class="form-label">Descricao</label>
+							<input type="text" min="3" max="Descricao" ng-model="Provaquestoes.Descricao"  name="Descricao" class="form-control" id="Descricao" placeholder="Descricao" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtcadastro" class="form-label">Dtcadastro</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Provaquestoes.Dtcadastro" name="datepicker" class="date-picker form-control" id="Dtcadastro placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtatualizacao" class="form-label">Dtatualizacao</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Provaquestoes.Dtatualizacao" name="datepicker" class="date-picker form-control" id="Dtatualizacao placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtexclusao" class="form-label">Dtexclusao</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Provaquestoes.Dtexclusao" name="datepicker" class="date-picker form-control" id="Dtexclusao placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+									            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,934 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{33C3A025-5712-4F04-9803-A19851CE25BA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cursos.Api</RootNamespace>
+    <AssemblyName>Cursos.Api</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.92.1.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.92.1\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.1\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.3.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember.Signed, Version=1.3.0.0, Culture=neutral, PublicKeyToken=9e8f22703bef9a29, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.Signed.1.3.0\lib\net45\FastMember.Signed.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.4.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.4.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.4.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.4.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.4.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.4.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.WebApi.Extensions.Compression.Server, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Extensions.Compression.Server.2.0.6\lib\net45\Microsoft.AspNet.WebApi.Extensions.Compression.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.2.2\lib\net45\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.1.0\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Select.HtmlToPdf, Version=18.1.0.0, Culture=neutral, PublicKeyToken=e0ae9f6e27a97018, processorArchitecture=MSIL">
+      <HintPath>..\packages\Select.HtmlToPdf.18.1.0\lib\net40\Select.HtmlToPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions.Compression.Client, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Extensions.Compression.Client.2.0.5\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\System.Net.Http.Extensions.Compression.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions.Compression.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Extensions.Compression.Client.2.0.5\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\System.Net.Http.Extensions.Compression.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.WebApi, Version=5.2.3.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.2.3\lib\net45\Unity.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Connected Services\WsCorreios\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AcoesController.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\AvaliacaoController.cs" />
+    <Compile Include="Controllers\AvaliacaoobservacaoController.cs" />
+    <Compile Include="Controllers\AvaliacaoperguntaController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\Base\IBaseController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\ControlenecessidadeController.cs" />
+    <Compile Include="Controllers\DependenciaadministrativaController.cs" />
+    <Compile Include="Controllers\DivulgacaoController.cs" />
+    <Compile Include="Controllers\DivulgacaoenviosController.cs" />
+    <Compile Include="Controllers\EnderecoController.cs" />
+    <Compile Include="Controllers\EscolaridadeController.cs" />
+    <Compile Include="Controllers\EventoController.cs" />
+    <Compile Include="Controllers\EventodatasController.cs" />
+    <Compile Include="Controllers\EventoturnosController.cs" />
+    <Compile Include="Controllers\GrupodequestoesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InscricaoController.cs" />
+    <Compile Include="Controllers\InstituicoesController.cs" />
+    <Compile Include="Controllers\ListaatividadesController.cs" />
+    <Compile Include="Controllers\LocaleventoController.cs" />
+    <Compile Include="Controllers\LocalprovaController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ModulosController.cs" />
+    <Compile Include="Controllers\MunicipioController.cs" />
+    <Compile Include="Controllers\NecessidadeController.cs" />
+    <Compile Include="Controllers\OrgaoemissorController.cs" />
+    <Compile Include="Controllers\OrgaosController.cs" />
+    <Compile Include="Controllers\Partial\ClienteController.cs" />
+    <Compile Include="Controllers\Partial\EventoController.cs" />
+    <Compile Include="Controllers\Partial\InscricaoController.cs" />
+    <Compile Include="Controllers\Partial\MunicipioController.cs" />
+    <Compile Include="Controllers\Partial\OrgaoemissorController.cs" />
+    <Compile Include="Controllers\Partial\UfController.cs" />
+    <Compile Include="Controllers\ProvaquestoesController.cs" />
+    <Compile Include="Controllers\QuestoescorrecaoController.cs" />
+    <Compile Include="Controllers\RecursoprovaController.cs" />
+    <Compile Include="Controllers\SalalocalprovaController.cs" />
+    <Compile Include="Controllers\SituacaoeventoController.cs" />
+    <Compile Include="Controllers\TemaController.cs" />
+    <Compile Include="Controllers\TipoeventoController.cs" />
+    <Compile Include="Controllers\TpnecessidadeController.cs" />
+    <Compile Include="Controllers\UfController.cs" />
+    <Compile Include="Filters\AuthenticationFilter.cs" />
+    <Compile Include="Formats\RefreshTokenProvider.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Identity\IdentityUser.cs" />
+    <Compile Include="Identity\IIdentityGeneric.cs" />
+    <Compile Include="Models\AutenticationModel.cs" />
+    <Compile Include="Models\AuthenticationIdentity.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\CustomOAuthProvider.cs" />
+    <Compile Include="scripts\controller\ControllerTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="scripts\service\ServiceTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="scripts\views\HtmlTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WsCorreios\configuration91.svcinfo" />
+    <None Include="Connected Services\WsCorreios\configuration.svcinfo" />
+    <None Include="Connected Services\WsCorreios\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="index.html" />
+    <Content Include="Reporttemplate\logo2.png" />
+    <Content Include="scripts\controller\AcoesController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\AvaliacaoController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\AvaliacaoobservacaoController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\AvaliacaoperguntaController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\ClienteController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\ControlenecessidadeController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\ControllerTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ControllerTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="scripts\controller\DependenciaadministrativaController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\DivulgacaoController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\DivulgacaoenviosController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\EscolaridadeController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\EventoController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\EventodatasController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\EventoturnosController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\GrupodequestoesController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\InscricaoController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\InstituicoesController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\ListaatividadesController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\LocaleventoController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\LocalprovaController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\MenuController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\ModulosController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\MunicipioController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\NecessidadeController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\OrgaoemissorController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\OrgaosController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\ProvaquestoesController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\QuestoescorrecaoController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\RecursoprovaController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\SalalocalprovaController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\SituacaoeventoController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\TemaController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\TipoeventoController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\TpnecessidadeController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\controller\UfController.js">
+      <DependentUpon>ControllerTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\AcoesService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\AvaliacaoobservacaoService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\AvaliacaoperguntaService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\AvaliacaoService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\ClienteService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\ControlenecessidadeService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\DependenciaadministrativaService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\DivulgacaoenviosService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\DivulgacaoService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\EscolaridadeService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\EventodatasService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\EventoService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\EventoturnosService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\GrupodequestoesService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\InscricaoService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\InstituicoesService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\ListaatividadesService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\LocaleventoService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\LocalprovaService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\MenuService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\ModulosService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\MunicipioService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\NecessidadeService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\OrgaoemissorService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\OrgaosService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\ProvaquestoesService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\QuestoescorrecaoService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\RecursoprovaService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\SalalocalprovaService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\ServiceTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="scripts\service\SituacaoeventoService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\TemaService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\TipoeventoService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\TpnecessidadeService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\service\UfService.js">
+      <DependentUpon>ServiceTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Acoes.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Avaliacao.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Avaliacaoobservacao.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Avaliacaopergunta.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Cliente.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Controlenecessidade.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Dependenciaadministrativa.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Divulgacao.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Divulgacaoenvios.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Escolaridade.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Evento.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Eventodatas.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Eventoturnos.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Grupodequestoes.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\HtmlTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HtmlTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="scripts\views\Inscricao.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Instituicoes.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Listaatividades.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Localevento.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Localprova.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Menu.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Modulos.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Municipio.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Necessidade.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Orgaoemissor.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Orgaos.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Provaquestoes.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Questoescorrecao.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Recursoprova.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Salalocalprova.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Situacaoevento.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Tema.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Tipoevento.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Tpnecessidade.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="scripts\views\Uf.html">
+      <DependentUpon>HtmlTemplate.tt</DependentUpon>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Reporttemplate\template.xlsx" />
+    <Content Include="Reporttemplate\templateHorizontal.docx" />
+    <Content Include="Reporttemplate\templateVertical.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OutputHelper\MultipleOutputHelper.ttinclude" />
+    <None Include="Connected Services\WsCorreios\AtendeClienteService.wsdl" />
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.assuntoPIMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.atualizaPagamentoNaEntregaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.atualizaRemessaAgrupadaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.bloquearObjetoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.buscaClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.buscaContratoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.buscaPagamentoEntregaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.buscaServicosAdicionaisAtivosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.buscaServicosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.buscaServicosValorDeclaradoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.buscaServicosXServicosAdicionaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.buscaTarifaValeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.calculaTarifaServicoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.cancelarObjetoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.cancelarPedidoScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.clienteERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.consultaCEPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.consultarPedidosInformacaoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.consultaSROResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.contratoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.embalagemLRSMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.enderecoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.fechaPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.fechaPlpVariosServicosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.geraDigitoVerificadorEtiquetasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.getStatusCartaoPostagemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.getStatusPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.integrarUsuarioScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.mensagemRetornoPIMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.motivoPIMaster.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.obterAssuntosPIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.obterClienteAtualizacaoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.obterEmbalagemLRSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.obterMensagemRetornoPIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.obterMotivosPIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.registrarPedidosInformacaoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.retorno.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.retornoCancelamento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.servicoAdicionalXML.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.servicoERP.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.solicitaEtiquetasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.solicitaPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.solicitarPostagemScolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.solicitaXmlPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.statusCartao.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.statusPlp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.valePostal.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.validaEtiquetaPLPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.validaPlpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.validarPostagemReversaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.validarPostagemSimultaneaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.verificaDisponibilidadeServicoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\WsCorreios\Weventos.Api.WsCorreios.VerificaSeTodosObjetosCanceladosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\api-weventos - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="scripts\MultipleOutputHelper.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WsCorreios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cursos.Business\Cursos.Business.csproj">
+      <Project>{8435babb-c2e3-4e1e-8402-1d6f19600fc9}</Project>
+      <Name>Cursos.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cursos.Data\Cursos.Data.csproj">
+      <Project>{43e0503e-5236-46b4-9f11-ce9c85cdb47d}</Project>
+      <Name>Cursos.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cursos.Repository\Cursos.Repository.csproj">
+      <Project>{bda15ac4-f42a-4649-8f50-c62fe2abdfc4}</Project>
+      <Name>Cursos.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cursos.ViewModel\Cursos.ViewModel.csproj">
+      <Project>{2e7b77b7-0b25-4452-83cb-277fffbf9cd9}</Project>
+      <Name>Cursos.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65526</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:65526/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

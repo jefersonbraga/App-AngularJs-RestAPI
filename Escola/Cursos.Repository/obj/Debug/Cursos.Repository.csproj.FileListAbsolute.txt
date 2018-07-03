@@ -1,0 +1,17 @@
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\Cursos.Repository.dll.config
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\Cursos.Repository.dll
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\Cursos.Repository.pdb
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\Cursos.Data.dll
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\Cursos.ViewModel.dll
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\EntityFramework.dll
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\Cursos.Data.pdb
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\Cursos.Data.dll.config
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\Cursos.ViewModel.pdb
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\EntityFramework.xml
+C:\Source\escola\Fontes\Escola\Cursos.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Source\escola\Fontes\Escola\Cursos.Repository\obj\Debug\Cursos.Repository.csprojAssemblyReference.cache
+C:\Source\escola\Fontes\Escola\Cursos.Repository\obj\Debug\Cursos.Repository.csproj.CoreCompileInputs.cache
+C:\Source\escola\Fontes\Escola\Cursos.Repository\obj\Debug\Cursos.Repository.csproj.CopyComplete
+C:\Source\escola\Fontes\Escola\Cursos.Repository\obj\Debug\Cursos.Repository.dll
+C:\Source\escola\Fontes\Escola\Cursos.Repository\obj\Debug\Cursos.Repository.pdb

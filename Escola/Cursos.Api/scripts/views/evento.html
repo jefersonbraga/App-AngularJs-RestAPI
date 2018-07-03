@@ -1,0 +1,243 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 11/13/2017 12:36:56 PM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>Evento</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li>
+                <a href="#">Evento</a>
+            </li>
+            <li class="active">Tabs</li>
+        </ol>
+    </div>
+</div>
+<div class="panel">
+    <div class="panel-header panel-controls">
+        <h3>
+            <strong>Pesquisa </strong> 
+        </h3>
+        <div class="control-btn">
+            <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-blue"><i class="fa fa-plus"></i>Novo</button>
+        </div>
+    </div>
+    <div class="panel-content">
+		<table dmp-table aa-data="tblData" aa-action="true" aa-editdelete="2" aa-search="true" id="table"></table>
+    </div>
+</div>
+<div class="modal" data-style="panel" data-position="top" id="modal-Evento" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="modal-backdrop fade in" style="height: 100%"></div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                <h4 class="modal-title"><strong>Cadastro de </strong> Evento</h4>
+            </div>
+            <div class="modal-body">
+                										;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Id" class="form-label">Id</label>
+							<input type="number" ng-model="Evento.Id"  name="Id" class="form-control" id="Id" placeholder="Id" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Nome" class="form-label">Nome</label>
+							<input type="text" min="3" max="Nome" ng-model="Evento.Nome"  name="Nome" class="form-control" id="Nome" placeholder="Nome" required>
+						</div>
+					</div>
+				</div>														;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Localid" class="form-label">Localid</label>
+							<input type="number" ng-model="Evento.Localid"  name="Localid" class="form-control" id="Localid" placeholder="Localid" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Tpevento" class="form-label">Tpevento</label>
+							<input type="text" min="3" max="Tp_evento" ng-model="Evento.Tpevento"  name="Tpevento" class="form-control" id="Tpevento" placeholder="Tpevento" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Situacao" class="form-label">Situacao</label>
+							<input type="text" min="3" max="Situacao" ng-model="Evento.Situacao"  name="Situacao" class="form-control" id="Situacao" placeholder="Situacao" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Disponivel" class="form-label">Disponivel</label>
+							<input type="text" min="3" max="Disponivel" ng-model="Evento.Disponivel"  name="Disponivel" class="form-control" id="Disponivel" placeholder="Disponivel" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Exibirlocal" class="form-label">Exibirlocal</label>
+							<input type="text" min="3" max="Exibirlocal" ng-model="Evento.Exibirlocal"  name="Exibirlocal" class="form-control" id="Exibirlocal" placeholder="Exibirlocal" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Inscricao" class="form-label">Inscricao</label>
+							<input type="text" min="3" max="Inscricao" ng-model="Evento.Inscricao"  name="Inscricao" class="form-control" id="Inscricao" placeholder="Inscricao" required>
+						</div>
+					</div>
+				</div>														;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Temaid" class="form-label">Temaid</label>
+							<input type="number" ng-model="Evento.Temaid"  name="Temaid" class="form-control" id="Temaid" placeholder="Temaid" required>
+						</div>
+					</div>
+				</div>
+																																	;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Qtdvagas" class="form-label">Qtdvagas</label>
+							<input type="number" ng-model="Evento.Qtdvagas"  name="Qtdvagas" class="form-control" id="Qtdvagas" placeholder="Qtdvagas" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Frequencia" class="form-label">Frequencia</label>
+							<input type="number" step="0.01" ng-model="Evento.Frequencia"  name="Frequencia" class="form-control" id="Frequencia" placeholder="Frequencia" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtinicio" class="form-label">Dtinicio</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Evento.Dtinicio" name="datepicker" class="date-picker form-control" id="Dtinicio placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dttermino" class="form-label">Dttermino</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Evento.Dttermino" name="datepicker" class="date-picker form-control" id="Dttermino placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																																																			<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Endereco" class="form-label">Endereco</label>
+							<input type="text" min="3" max="Endereco" ng-model="Evento.Endereco"  name="Endereco" class="form-control" id="Endereco" placeholder="Endereco" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Vecimentoboleto" class="form-label">Vecimentoboleto</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Evento.Vecimentoboleto" name="datepicker" class="date-picker form-control" id="Vecimentoboleto placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Descricao" class="form-label">Descricao</label>
+							<input type="text" min="3" max="Descricao" ng-model="Evento.Descricao"  name="Descricao" class="form-control" id="Descricao" placeholder="Descricao" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Mensagemboleto" class="form-label">Mensagemboleto</label>
+							<input type="text" min="3" max="Mensagemboleto" ng-model="Evento.Mensagemboleto"  name="Mensagemboleto" class="form-control" id="Mensagemboleto" placeholder="Mensagemboleto" required>
+						</div>
+					</div>
+				</div>																		<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Mensagemcomprovante" class="form-label">Mensagemcomprovante</label>
+							<input type="text" min="3" max="Mensagemcomprovante" ng-model="Evento.Mensagemcomprovante"  name="Mensagemcomprovante" class="form-control" id="Mensagemcomprovante" placeholder="Mensagemcomprovante" required>
+						</div>
+					</div>
+				</div>														;
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="Idantigo" class="form-label">Idantigo</label>
+							<input type="number" ng-model="Evento.Idantigo"  name="Idantigo" class="form-control" id="Idantigo" placeholder="Idantigo" required>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtcadastro" class="form-label">Dtcadastro</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Evento.Dtcadastro" name="datepicker" class="date-picker form-control" id="Dtcadastro placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtatualizacao" class="form-label">Dtatualizacao</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Evento.Dtatualizacao" name="datepicker" class="date-picker form-control" id="Dtatualizacao placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+																							<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="form-label">Date Picker</label>
+							<label for="Dtexclusao" class="form-label">Dtexclusao</label>
+							<div class="prepend-icon">
+								<input type="text" ng-model="Evento.Dtexclusao" name="datepicker" class="date-picker form-control" id="Dtexclusao placeholder="Selecione uma data..." required>
+								<i class="icon-calendar"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+									            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,440 @@
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>{{title}}</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li class="active">{{title}}</li>
+        </ol>
+    </div>
+</div>
+<div class="panel" data-style="panel" data-position="top" id="panel-pesquisa">
+    <div class="fade in" style=" height: 100%"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <span class="modal-title">
+                <strong>Pesquisa de registros</strong>
+            </span>
+        </div>
+        <div class="modal-body">
+            <div class="modal-header">
+                <div class="control-btn">
+                    <button type="button" ng-click="refresh()" class="btn btn-sm btn-blue"><i class="fa fa-refresh"></i> Remover Filtros</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="Nome" class="form-label">{{numeromatricula}}</label>
+                        <input type="number" ng-model="filtro.Numeroinscricao" name="numeroinscricao" class="form-control bg-success" id="numeroinscricao">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="Nome" class="form-label">Nome</label>
+                        <input type="text" minlength="6" maxlength="250" ng-model="filtro.Nome" name="Nome" class="form-control bg-success" id="Nomefiltro" placeholder="Nome">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="Divulgacao" class="form-label">Status Pagamento</label>
+                        <select class="form-control bg-success select-basic" data-search="true" id="Statuspagamentofiltro"
+                                ng-model="filtro.Statuspagamento" ng-selected="true">
+                            <option value="">TODOS</option>
+                            <option value="Pendente">Pendente</option>
+                            <option value="Confirmado">Confirmado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="Divulgacao" class="form-label">Eventos Inscritos</label>
+                        <select class="form-control bg-success select-basic" data-search="true" id="Eventofiltro" name="EveEventofiltronto"
+                                ng-model="Evento" ng-selected="filtro.Idevento  == v.Id"
+                                ng-options="v.Nome for v in eventos track by v.Id">
+                            <option value="">TODOS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label class="form-label">Data Inicio</label>
+                        <div class="prepend-icon">
+                            <input type="text" ng-model="filtro.Dtinicio" name="datepicker" class="form-control" id="Dtiniciofiltro">
+                            <i class="icon-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label class="form-label">Data Fim</label>
+                        <div class="prepend-icon">
+                            <input type="text" ng-model="filtro.Dttermino" name="datepicker" class="form-control" id="Dtterminofiltro">
+                            <i class="icon-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="Orgaoemissor" class="form-label">Turnos</label>
+                        <select class="form-control bg-success select-basic" data-search="true" id="Sexofiltro"
+                                ng-model="filtro.Sexo" ng-selected="true">
+                            <option value="">TODOS</option>
+                            <option value="Manhã">Manha</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Tarde">Noite</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="OrdemAlfabetica" class="form-label">Ordem alfabetica</label>
+                        <select class="form-control bg-success select-basic" data-search="true" id="Letraalfabeto" name="Letraalfabeto"
+                                ng-model="filtro.Letraalfabeto" ng-selected="true"
+                                ng-options="v.Descricao for v in alfabeto track by v.Id">
+                            <option value="">TODOS</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <fieldset>
+                <legend><strong>Resultado Pesquisa</strong></legend>
+                <table dmp-table aa-data="tblData" aa-height="500" data-detail-view="false" aa-action="true" aa-url="inscricao/getpaginacao" aa-server="server" aa-anotheraction="true" aa-edit="true" aa-comprovante="true" aa-boleto="true" aa-etiqueta="true" aa-search="false" aa-filter="true" id="table"></table>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<div class="panel" data-style="panel" data-position="top" id="modal-inscricao" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="fade in" style="height: 100%"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+            <h4 class="modal-title"><strong>Cadastro de </strong> {{title}}</h4>
+        </div>
+        <div class="modal-body" style="overflow: auto;height: 800px;position: relative;border:1px solid #ccc!important">
+            <fieldset>
+                <legend><strong>Dados do Cliente</strong></legend>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <input type="hidden" ng-model="inscricao.Id" name="Id" class="form-control" id="Id">
+                            <label for="Id" class="form-label">{{numeromatricula}}</label>
+                            <input type="number" ng-model="inscricao.Matricula" name="Id" class="form-control" id="Id" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="form-label">Data {{inscricaonome}}</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="inscricao.Criado" name="datepicker" class="form-control" id="Criado" readonly>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Cliente" class="form-label">Cliente</label>
+                            <input type="hidden" ng-model="inscricao.Clienteid" name="Cliente" class="form-control" id="Cliente" placeholder="Cliente">
+                            <input type="text" ng-model="inscricao.Aluno.Nome" name="NomeCliente" class="form-control" id="NomeCliente" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Cliente" class="form-label">CPF</label>
+                            <input type="text" ng-model="inscricao.Aluno.CPF" name="Cpf" class="form-control" id="Cpf" data-mask="999.999.999-99" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">RG</label>
+                            <input type="text" ng-model="inscricao.Aluno.RG" name="NomeCliente" class="form-control" id="Rg" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="form-label">Data Nascimento</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="inscricao.Aluno.Dtnascimento" name="datepicker" class="form-control" id="Criado" readonly>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Sexo</label>
+                            <input type="text" ng-model="inscricao.Aluno.Sexo" name="Sexo" class="form-control" id="Sexo" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Logradouro</label>
+                            <input type="text" ng-model="inscricao.Aluno.Logradouro" name="Logradouro" class="form-control" id="Logradouro" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Complemento</label>
+                            <input type="text" ng-model="inscricao.Aluno.Complemento" name="Complemento" class="form-control" id="Complemento" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Numero</label>
+                            <input type="text" ng-model="inscricao.Aluno.Numero" name="Numero" class="form-control" id="Numero" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Bairro</label>
+                            <input type="text" ng-model="inscricao.Aluno.Bairro" name="Bairro" class="form-control" id="Bairro" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Cidade</label>
+                            <input type="text" ng-model="inscricao.Aluno.Cidade" name="Cidade" class="form-control" id="Cidade" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">UF</label>
+                            <input type="text" ng-model="inscricao.Aluno.UF" name="UF" class="form-control" id="UF" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Cep</label>
+                            <input type="text" ng-model="inscricao.Aluno.CEP" name="Cep" class="form-control" id="Cep" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Telefone</label>
+                            <input type="text" ng-model="inscricao.Aluno.Telefone" name="Cep" class="form-control" id="Telefone" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Celular</label>
+                            <input type="text" ng-model="inscricao.Aluno.Celular" name="Celular" class="form-control" id="Celular" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Email</label>
+                            <input type="text" ng-model="inscricao.Aluno.Email" name="Email" class="form-control" id="Email" readonly>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend><strong>Dados do Evento</strong></legend>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Evento</label>
+                            <input type="text" ng-model="inscricao.Evento" name="Evento" class="form-control" id="Evento" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Local Evento</label>
+                            <input type="text" ng-model="inscricao.Evento1.Localevento" name="Localevento" class="form-control" id="Localevento" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Data</label>
+                            <input type="text" ng-model="inscricao.Evento1.Dataevento" name="Dataevento" class="form-control" id="Dataevento" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Cpf" class="form-label">Horario</label>
+                            <input type="text" ng-model="inscricao.Evento1.HorainicioHorafim" name="HorainicioHorafim" class="form-control" id="HorainicioHorafim" readonly>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><strong>Portador de {{deficiencia}} / Atendimento Especial</strong></legend>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="Naturalidade" class="form-label">Tipo:</label>
+                            <select class="form-control bg-success select-basic" data-search="true" id="Tiponecessidade"
+                                    ng-model="Tiponecessidade" ng-selected="true"
+                                    ng-options="v.Tiponecessidade for v in tiponecessidades track by v.Id">
+                                <option value="">Selecione..</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div ng-repeat="list in necessidadesselecao" class="col-sm-6">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">{{list.ListName}}</div>
+                            <div class="panel-body" style="overflow: auto;height: 150px;position: relative;border:1px solid #ccc!important">
+                                <ul dnd-list dnd-drop="callback({targetList: list, targetIndex: index})">
+                                    <li style="display:block !important" ng-repeat="item in list.items"
+                                        dnd-draggable="null" dnd-callback="onDrop(list, $index, targetList, targetIndex)">
+                                        {{item.Necessidade}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><strong>Local de {{realizacao}} de Prova</strong></legend>
+            </fieldset>
+            <fieldset>
+                <legend><strong>Dados do Pagamento e {{inscricaonome}}</strong></legend>
+            </fieldset>
+
+            <!--<div class="row">
+
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="Evento" class="form-label">Evento</label>
+                        <select class="form-control bg-success select-basic" data-search="true" id="Evento" required
+                                ng-model="inscricao.Eventoid" ng-selected="true"
+                                ng-options="v.Nome for v in eventos track by v.Id">
+                            <option value="">Selecione..</option>
+                        </select>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Turno" class="form-label">Turno</label>
+                                <input type="text" min="3" max="Turno" ng-model="inscricao.Turno" name="Turno" class="form-control" id="Turno" placeholder="Turno" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Cargo" class="form-label">Cargo</label>
+                                <input type="text" min="3" max="Cargo" ng-model="inscricao.Cargo" name="Cargo" class="form-control" id="Cargo" placeholder="Cargo" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Sala" class="form-label">Sala</label>
+                                <input type="text" min="3" max="Sala" ng-model="inscricao.Sala" name="Sala" class="form-control" id="Sala" placeholder="Sala" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Local Prova" class="form-label">Local Prova</label>
+                                <input type="number" ng-model="inscricao.Localprovaid" name="Local Prova" class="form-control" id="Local Prova" placeholder="Local Prova" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Tipo de Necessidade" class="form-label">Tipo de Necessidade</label>
+                                <input type="number" ng-model="inscricao.Tpnecessidade" name="Tipo de Necessidade" class="form-control" id="Tipo de Necessidade" placeholder="Tipo de Necessidade" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Necessidade Especial" class="form-label">Necessidade Especial</label>
+                                <input type="text" min="3" max="Necessidade Especial" ng-model="inscricao.Neespecial" name="Necessidade Especial" class="form-control" id="Necessidade Especial" placeholder="Necessidade Especial" required>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Forma de Pagamento" class="form-label">Forma de Pagamento</label>
+                            <input type="text" min="3" max="Forma de Pagamento" ng-model="inscricao.Formapagamento" name="Forma de pagamento" class="form-control" id="Forma de Pagamento" placeholder="Formapagamento" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="form-label">Data Pagamentos</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="inscricao.Datapagamento" name="datepicker" class="form-control" id="Data Pagamento"  required>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Data do Boleto Emitido" class="form-label">Data do Boleto Emitido</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="inscricao.Dtboletoemitido" name="Boleto Emitido" class="form-control" id="Boleto Emitido"  required>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Pago" class="form-label">Pago</label>
+                            <input type="text" min="3" max="Pago" ng-model="inscricao.Pago" name="Pago" class="form-control" id="Pago" placeholder="Pago" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Data da Inscricao" class="form-label">Data da Inscricao</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="inscricao.Dtinscricao" name="Data da Inscrição" class="form-control" id="Dtinscricao"  required><i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-label"></label>
+                            <label for="Última Alteração" class="form-label">Data da Ultima Alteracao</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="inscricao.Ultimaateracao" name="Última Alteração" class="form-control" id="Última Alteração"  required>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Fase 01" class="form-label">Fase 01</label>
+                            <input type="text" min="3" max="Fase 01" ng-model="inscricao.Fase01" name="Fase 01" class="form-control" id="Fase 01" placeholder="Fase 01" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Fase 02" class="form-label">Fase 02</label>
+                            <input type="text" min="3" max="Fase 02" ng-model="inscricao.Fase02" name="Fase 02" class="form-control" id="Fase 02" placeholder="Fase 02" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Fase 03" class="form-label">Fase 03</label>
+                            <input type="text" min="3" max="Fase03" ng-model="inscricao.Fase03" name="Fase 03" class="form-control" id="Fase 03" placeholder="Fase 03" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Fase 04" class="form-label">Fase 04</label>
+                            <input type="text" min="3" max="Fase 04" ng-model="inscricao.Fase04" name="Fase 04" class="form-control" id="Fase 04" placeholder="Fase 04" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+                </div>
+            </div>-->
+        </div>
+        <div class="modal-footer">
+            <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+            <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+        </div>
+    </div>
+</div>

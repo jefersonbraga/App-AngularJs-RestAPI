@@ -1,0 +1,5 @@
+C:\Source\escola\Fontes\Database\Wescola.Database\Wescola.Database\bin\Debug\Escola.Database.dacpac
+C:\Source\escola\Fontes\Database\Wescola.Database\Wescola.Database\bin\Debug\Wescola.Database.dll
+C:\Source\escola\Fontes\Database\Wescola.Database\Wescola.Database\bin\Debug\Wescola.Database.pdb
+C:\Source\escola\Fontes\Database\Wescola.Database\Wescola.Database\obj\Debug\Wescola.Database.dll
+C:\Source\escola\Fontes\Database\Wescola.Database\Wescola.Database\obj\Debug\Wescola.Database.pdb

@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BDA15AC4-F42A-4649-8F50-C62FE2ABDFC4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cursos.Repository</RootNamespace>
+    <AssemblyName>Cursos.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcoesRepository.cs" />
+    <Compile Include="AspNetUsersRepository.cs" />
+    <Compile Include="AvaliacaoobservacaoRepository.cs" />
+    <Compile Include="AvaliacaoperguntaRepository.cs" />
+    <Compile Include="AvaliacaoRepository.cs" />
+    <Compile Include="Base\GenericRepository.cs" />
+    <Compile Include="Base\IGenericRepository.cs" />
+    <Compile Include="ClienteRepository.cs" />
+    <Compile Include="ControlenecessidadeRepository.cs" />
+    <Compile Include="DependenciaadministrativaRepository.cs" />
+    <Compile Include="DivulgacaoenviosRepository.cs" />
+    <Compile Include="DivulgacaoRepository.cs" />
+    <Compile Include="EscolaridadeRepository.cs" />
+    <Compile Include="EventodatasRepository.cs" />
+    <Compile Include="EventoRepository.cs" />
+    <Compile Include="EventoturnosRepository.cs" />
+    <Compile Include="GrupodequestoesRepository.cs" />
+    <Compile Include="InscricaoRepository.cs" />
+    <Compile Include="InstituicoesRepository.cs" />
+    <Compile Include="Interfaces\IAcoesRepository.cs" />
+    <Compile Include="Interfaces\IAspNetUsersRepository.cs" />
+    <Compile Include="Interfaces\IAvaliacaoobservacaoRepository.cs" />
+    <Compile Include="Interfaces\IAvaliacaoperguntaRepository.cs" />
+    <Compile Include="Interfaces\IAvaliacaoRepository.cs" />
+    <Compile Include="Interfaces\IClienteRepository.cs" />
+    <Compile Include="Interfaces\IControlenecessidadeRepository.cs" />
+    <Compile Include="Interfaces\IDependenciaadministrativaRepository.cs" />
+    <Compile Include="Interfaces\IDivulgacaoenviosRepository.cs" />
+    <Compile Include="Interfaces\IDivulgacaoRepository.cs" />
+    <Compile Include="Interfaces\IEscolaridadeRepository.cs" />
+    <Compile Include="Interfaces\IEventodatasRepository.cs" />
+    <Compile Include="Interfaces\IEventoRepository.cs" />
+    <Compile Include="Interfaces\IEventoturnosRepository.cs" />
+    <Compile Include="Interfaces\IGrupodequestoesRepository.cs" />
+    <Compile Include="Interfaces\IInscricaoRepository.cs" />
+    <Compile Include="Interfaces\IInstituicoesRepository.cs" />
+    <Compile Include="Interfaces\IListaatividadesRepository.cs" />
+    <Compile Include="Interfaces\ILocaleventoRepository.cs" />
+    <Compile Include="Interfaces\ILocalprovaRepository.cs" />
+    <Compile Include="Interfaces\IMenuRepository.cs" />
+    <Compile Include="Interfaces\IModulosRepository.cs" />
+    <Compile Include="Interfaces\IMunicipioRepository.cs" />
+    <Compile Include="Interfaces\INecessidadeRepository.cs" />
+    <Compile Include="Interfaces\IOrgaoemissorRepository.cs" />
+    <Compile Include="Interfaces\IOrgaosRepository.cs" />
+    <Compile Include="Interfaces\IProvaquestoesRepository.cs" />
+    <Compile Include="Interfaces\IQuestoescorrecaoRepository.cs" />
+    <Compile Include="Interfaces\IRecursoprovaRepository.cs" />
+    <Compile Include="Interfaces\IRefreshtokenRepository.cs" />
+    <Compile Include="Interfaces\ISalalocalprovaRepository.cs" />
+    <Compile Include="Interfaces\ISituacaoeventoRepository.cs" />
+    <Compile Include="Interfaces\ITemaRepository.cs" />
+    <Compile Include="Interfaces\ITipoeventoRepository.cs" />
+    <Compile Include="Interfaces\ITpnecessidadeRepository.cs" />
+    <Compile Include="Interfaces\IUfRepository.cs" />
+    <Compile Include="Interfaces\Partial\IClienteRepository.cs" />
+    <Compile Include="Interfaces\Partial\IEventodatasRepository.cs" />
+    <Compile Include="Interfaces\Partial\IEventoRepository.cs" />
+    <Compile Include="Interfaces\Partial\IInscricaoRepository.cs" />
+    <Compile Include="ListaatividadesRepository.cs" />
+    <Compile Include="LocaleventoRepository.cs" />
+    <Compile Include="LocalprovaRepository.cs" />
+    <Compile Include="MenuRepository.cs" />
+    <Compile Include="ModulosRepository.cs" />
+    <Compile Include="MunicipioRepository.cs" />
+    <Compile Include="NecessidadeRepository.cs" />
+    <Compile Include="OrgaoemissorRepository.cs" />
+    <Compile Include="OrgaosRepository.cs" />
+    <Compile Include="Partial\AvaliacaoRepository.cs" />
+    <Compile Include="Partial\ClienteRepository.cs" />
+    <Compile Include="Partial\EventodatasRepository.cs" />
+    <Compile Include="Partial\EventoRepository.cs" />
+    <Compile Include="Partial\InscricaoRepository.cs" />
+    <Compile Include="ProvaquestoesRepository.cs" />
+    <Compile Include="QuestoescorrecaoRepository.cs" />
+    <Compile Include="RecursoprovaRepository.cs" />
+    <Compile Include="RefreshtokenRepository.cs" />
+    <Compile Include="SalalocalprovaRepository.cs" />
+    <Compile Include="Services\AcoesService.cs" />
+    <Compile Include="Services\AspNetUsersService.cs" />
+    <Compile Include="Services\AvaliacaoobservacaoService.cs" />
+    <Compile Include="Services\AvaliacaoperguntaService.cs" />
+    <Compile Include="Services\AvaliacaoService.cs" />
+    <Compile Include="Services\Base\BaseServices.cs" />
+    <Compile Include="Services\Base\IBaseService.cs" />
+    <Compile Include="Services\ClienteService.cs" />
+    <Compile Include="Services\ControlenecessidadeService.cs" />
+    <Compile Include="Services\DependenciaadministrativaService.cs" />
+    <Compile Include="Services\DivulgacaoenviosService.cs" />
+    <Compile Include="Services\DivulgacaoService.cs" />
+    <Compile Include="Services\EscolaridadeService.cs" />
+    <Compile Include="Services\EventodatasService.cs" />
+    <Compile Include="Services\EventoService.cs" />
+    <Compile Include="Services\EventoturnosService.cs" />
+    <Compile Include="Services\GrupodequestoesService.cs" />
+    <Compile Include="Services\InscricaoService.cs" />
+    <Compile Include="Services\InstituicoesService.cs" />
+    <Compile Include="Services\Interfaces\IAcoesService.cs" />
+    <Compile Include="Services\Interfaces\IAspNetUsersService.cs" />
+    <Compile Include="Services\Interfaces\IAvaliacaoobservacaoService.cs" />
+    <Compile Include="Services\Interfaces\IAvaliacaoperguntaService.cs" />
+    <Compile Include="Services\Interfaces\IAvaliacaoService.cs" />
+    <Compile Include="Services\Interfaces\IClienteService.cs" />
+    <Compile Include="Services\Interfaces\IControlenecessidadeService.cs" />
+    <Compile Include="Services\Interfaces\IDependenciaadministrativaService.cs" />
+    <Compile Include="Services\Interfaces\IDivulgacaoenviosService.cs" />
+    <Compile Include="Services\Interfaces\IDivulgacaoService.cs" />
+    <Compile Include="Services\Interfaces\IEscolaridadeService.cs" />
+    <Compile Include="Services\Interfaces\IEventodatasService.cs" />
+    <Compile Include="Services\Interfaces\IEventoService.cs" />
+    <Compile Include="Services\Interfaces\IEventoturnosService.cs" />
+    <Compile Include="Services\Interfaces\IGrupodequestoesService.cs" />
+    <Compile Include="Services\Interfaces\IInscricaoService.cs" />
+    <Compile Include="Services\Interfaces\IInstituicoesService.cs" />
+    <Compile Include="Services\Interfaces\IListaatividadesService.cs" />
+    <Compile Include="Services\Interfaces\ILocaleventoService.cs" />
+    <Compile Include="Services\Interfaces\ILocalprovaService.cs" />
+    <Compile Include="Services\Interfaces\IMenuService.cs" />
+    <Compile Include="Services\Interfaces\IModulosService.cs" />
+    <Compile Include="Services\Interfaces\IMunicipioService.cs" />
+    <Compile Include="Services\Interfaces\INecessidadeService.cs" />
+    <Compile Include="Services\Interfaces\IOrgaoemissorService.cs" />
+    <Compile Include="Services\Interfaces\IOrgaosService.cs" />
+    <Compile Include="Services\Interfaces\IProvaquestoesService.cs" />
+    <Compile Include="Services\Interfaces\IQuestoescorrecaoService.cs" />
+    <Compile Include="Services\Interfaces\IRecursoprovaService.cs" />
+    <Compile Include="Services\Interfaces\IRefreshtokenService.cs" />
+    <Compile Include="Services\Interfaces\ISalalocalprovaService.cs" />
+    <Compile Include="Services\Interfaces\ISituacaoeventoService.cs" />
+    <Compile Include="Services\Interfaces\ITemaService.cs" />
+    <Compile Include="Services\Interfaces\ITipoeventoService.cs" />
+    <Compile Include="Services\Interfaces\ITpnecessidadeService.cs" />
+    <Compile Include="Services\Interfaces\IUfService.cs" />
+    <Compile Include="Services\Interfaces\Partial\IEventoService.cs" />
+    <Compile Include="Services\Interfaces\Partial\IClienteService.cs" />
+    <Compile Include="Services\Interfaces\Partial\IInscricaoService.cs" />
+    <Compile Include="Services\Interfaces\Partial\IEventodatasService.cs" />
+    <Compile Include="Services\ListaatividadesService.cs" />
+    <Compile Include="Services\LocaleventoService.cs" />
+    <Compile Include="Services\LocalprovaService.cs" />
+    <Compile Include="Services\MenuService.cs" />
+    <Compile Include="Services\ModulosService.cs" />
+    <Compile Include="Services\MunicipioService.cs" />
+    <Compile Include="Services\NecessidadeService.cs" />
+    <Compile Include="Services\OrgaoemissorService.cs" />
+    <Compile Include="Services\OrgaosService.cs" />
+    <Compile Include="Services\Partial\ClienteService.cs" />
+    <Compile Include="Services\Partial\EventodatasService.cs" />
+    <Compile Include="Services\Partial\EventoService.cs" />
+    <Compile Include="Services\Partial\InscricaoService.cs" />
+    <Compile Include="Services\ProvaquestoesService.cs" />
+    <Compile Include="Services\QuestoescorrecaoService.cs" />
+    <Compile Include="Services\RecursoprovaService.cs" />
+    <Compile Include="Services\RefreshtokenService.cs" />
+    <Compile Include="Services\SalalocalprovaService.cs" />
+    <Compile Include="Services\SituacaoeventoService.cs" />
+    <Compile Include="Services\TemaService.cs" />
+    <Compile Include="Services\TipoeventoService.cs" />
+    <Compile Include="Services\TpnecessidadeService.cs" />
+    <Compile Include="Services\UfService.cs" />
+    <Compile Include="SituacaoeventoRepository.cs" />
+    <Compile Include="TemaRepository.cs" />
+    <Compile Include="TipoeventoRepository.cs" />
+    <Compile Include="TpnecessidadeRepository.cs" />
+    <Compile Include="UfRepository.cs" />
+    <Compile Include="Work\IUnitOfWork.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Work\UnitOfWork.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="MultipleOutputHelper.ttinclude" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cursos.Data\Cursos.Data.csproj">
+      <Project>{43E0503E-5236-46B4-9F11-CE9C85CDB47D}</Project>
+      <Name>Cursos.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cursos.ViewModel\Cursos.ViewModel.csproj">
+      <Project>{2e7b77b7-0b25-4452-83cb-277fffbf9cd9}</Project>
+      <Name>Cursos.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,449 @@
+<!--By: Jeferson Braga do Carmo Create Date: 18/09/2017
+Last Update: 9/19/2017 1:26:50 AM
+Gerado automaticamente para alteracoes alterar o template-->
+<div class="header preview active" data-style="box" data-position="top">
+    <h2><strong>{{title}}</strong></h2>
+    <div class="breadcrumb-wrapper">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Weventos</a>
+            </li>
+            <li class="active">{{title}}</li>
+        </ol>
+    </div>
+</div>
+<div class="panel" data-style="panel" data-position="top" id="panel-pesquisa">
+    <div class="fade in" style=" height: 100%"></div>
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <span class="modal-title">
+                <strong>Pesquisa de registros</strong>
+            </span>
+            <div class="control-btn">
+                <button type="button" ng-click="showModal('new')" class="btn btn-sm btn-dark"><i class="fa fa-plus"></i> Novo</button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="modal-header">
+                <div class="control-btn">
+                    <button type="button" ng-click="refresh()" class="btn btn-sm btn-blue"><i class="fa fa-refresh"></i> Remover Filtros</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Divulgacao" class="form-label">Eventos Inscritos</label>
+                        <select class="form-control bg-success select-basic" data-search="true" id="Evento" name="Evento"
+                                ng-model="Evento" ng-selected="filtro.Idevento  == v.Id"
+                                ng-options="v.Nome for v in eventos track by v.Id">
+                            <option value="">TODOS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="Nome" class="form-label">Nome</label>
+                        <input type="text" minlength="6" maxlength="250" ng-model="filtro.Nome" name="Nome" class="form-control bg-success" id="Nomefiltro" placeholder="Nome">
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="Nome" class="form-label">CPF</label>
+                        <input type="text" minlength="6" maxlength="250" ng-model="filtro.Cpf" name="Cpf" class="form-control bg-success" data-mask="999.999.999-99" id="Cpffiltro" placeholder="Cpf">
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="Orgaoemissor" class="form-label">Sexo</label>
+                        <select class="form-control bg-success select-basic" data-search="true" id="Sexofiltro"
+                                ng-model="filtro.Sexo" ng-selected="true">
+                            <option value="">TODOS</option>
+                            <option value="MASCULINO">MASCULINO</option>
+                            <option value="FEMININO">FEMININO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="Nome" class="form-label">E-mail</label>
+                        <input type="email" minlength="2" maxlength="250" ng-model="filtro.Email" name="Nome" class="form-control bg-success" id="Emailfiltro" placeholder="Email">
+                    </div>
+                </div>
+
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="Nome" class="form-label">Aniversario:</label>
+                        <input type="text" minlength="2" maxlength="250" ng-model="filtro.Dtaniversario" name="Dtaniversario" class="date-picker form-control bg-success" id="Dtaniversario" placeholder="Aniversario">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="OrdemAlfabetica" class="form-label">Por ordem alfabetica</label>
+                        <select class="form-control bg-success select-basic" data-search="true" id="Letraalfabeto" name="Letraalfabeto"
+                                ng-model="filtro.Letraalfabeto" ng-selected="true"
+                                ng-options="v.Descricao for v in alfabeto track by v.Id">
+                            <option value="">TODOS</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <fieldset>
+                <legend><strong>Resultado Pesquisa</strong></legend>
+                <table dmp-table aa-data="tblData" aa-height="500" data-detail-view="true" aa-action="true" aa-url="cliente/getpaginacao" aa-server="server" aa-editdelete="2" aa-search="false" aa-filter="true" id="table"></table>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<div class="panel" data-style="panel" data-position="top" id="modal-cliente" aria-hidden="false" style="display: none;" data-action="none">
+    <div class="fade in" style=" height: 100%"></div>
+
+    <div class="modal-content">
+        <div class="modal-header bg-primary">
+            <button type="button" ng-click="exitModal()" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+            <span class="modal-title">
+                <strong>Cadastro de </strong> cliente
+            </span>
+            <span ng-if="cliente.Nome.length > 0"> - {{cliente.Nome}}</span>
+        </div>
+        <form id="formCliente" name="formCliente" ng-submit="Save()" class="modal-body">
+            <fieldset>
+                <legend><strong>Dados Conta</strong></legend>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Email" class="form-label">E-mail</label>
+                            <input type="email" style="text-transform:lowercase" minlength="6" maxlength="50" ng-model="cliente.Email" name="Email" class="form-control bg-success" id="Email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Senha" class="form-label">Senha</label>
+                            <input type="password" style="text-transform:none" minlength="6" maxlength="20" ng-model="cliente.Senha" name="Senha" class="form-control bg-success" id="Senha" placeholder="Senha" required equalto="#Senha">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="SenhaConfirmar" class="form-label"> Confirmar Senha</label>
+                            <input type="password" style="text-transform:none" minlength="6" maxlength="50" ng-model="cliente.Senha2" ng-change="confirmarSenha()" name="SenhaConfirmacao" class="form-control bg-success" id="SenhaConfirmar" placeholder="Confirmar Senha" required equalto="#Senha">
+                        </div>
+                    </div>
+                    <div class="col-md-1" style="margin-left:-5px; margin-top:30px">
+                        <i class="glyphicon glyphicon-ok-sign" ng-show="confirmarSenha() == true"></i>
+                        <span class="alert-danger" ng-show="confirmarSenha() == false">Senha diferente!</span>
+                    </div>
+                    <div class="col-md-2" style="margin-left:-5px; margin-top:30px">
+                        <div class="form-group">
+                            <input type="checkbox" data-checkbox="icheckbox_square-blue" ng-model="cliente.Enviosenha" style="margin-left:23px;" id="Enviosenha" />
+                            <label for="Enviosenha" class="form-label">Enviar senha</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="margin-left:-5px; margin-top:30px">
+                        <div class="form-group">
+                            <label for="Receberfeeds" class="form-label">Receber Feeds</label>
+                            <input type="checkbox" data-checkbox="icheckbox_square-blue" checked ng-model="cliente.Receberfeeds" style="margin-left:23px;" id="Receberfeeds" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel" ng-show="cliente.Inscricoes.length > 0">
+                        <div class="panel-header panel-controls">
+                            <h3><i class="fa fa-table"></i> <strong>{{inscricao}}</strong></h3>
+                            <!--<div class="control-btn"><a href="#" class="panel-reload hidden"><i class="icon-reload"></i></a><a class="hidden" id="dropdownMenu1" data-toggle="dropdown"><i class="icon-settings"></i></a><ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1"><li><a href="#">Action</a></li><li><a href="#">Another action</a></li><li><a href="#">Something else here</a></li></ul><a href="#" class="panel-popout hidden tt" title="Pop Out/In"><i class="icons-office-58"></i></a><a href="#" class="panel-maximize hidden"><i class="icon-size-fullscreen"></i></a><a href="#" class="panel-toggle"><i class="fa fa-angle-down"></i></a><a href="#" class="panel-close"><i class="icon-trash"></i></a></div>-->
+                        </div>
+                        <div class="panel-content">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Evento</th>
+                                        <!--<th>Local</th>-->
+                                        <th>Dt. Cadastro</th>
+                                        <th>Valor</th>
+                                        <th>Recebido</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="active" ng-repeat="x in cliente.Inscricoes">
+                                        <td>{{x.Evento}}</td>
+
+                                        <!--<td>{{x.LocalProva}}</td>-->
+                                        <td>{{x.Dtinscricao}}</td>
+                                        <td>{{x.Valor}}</td>
+                                        <td>{{x.Valorrecebido}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <h3 ng-show="cliente.Inscricoes.length == 0"><i class="fa fa-table"></i> <strong>Cliente sem {{inscricao}}</strong></h3>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><strong>Dados Pessoais</strong></legend>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Id" class="form-label">{{codigo}}</label>
+                            <input type="number" ng-model="cliente.Id" name="Id" class="form-control" id="Id" placeholder="{{codigo}}" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Nome" class="form-label">Nome</label>
+                            <input type="text" minlength="6" maxlength="250" ng-model="cliente.Nome" name="Nome" class="form-control bg-success" id="Nome" placeholder="Nome" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Sexo" class="form-label">Sexo</label>
+                            <div class="icheck-inline">
+                                <label><input type="radio" name="radio2" data-radio="iradio_square-blue" id="SexoMasculino"> Masculino</label>
+                                <label><input type="radio" name="radio2" data-radio="iradio_square-blue" id="SexoFeminino"> Feminino</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Rg" class="form-label">Documento</label>
+                            <input type="text" minlength="6" maxlength="50" ng-model="cliente.Rg" name="Rg" class="form-control bg-success" id="Rg" placeholder="Rg" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Orgaoemissor" class="form-label">Orgao Emissor</label>
+                            <select class="form-control bg-success select-basic" data-search="true" id="Orgaoemissor"
+                                    ng-model="OrgaoemissorSelect" ng-selected="true"
+                                    ng-options="v.Noemissor for v in orgaosEmissor track by v.Coemissor">
+                                <option value="">Selecione..</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Ufemissor" class="form-label">Uf Emissor</label>
+                            <select class="form-control bg-success select-basic" data-search="true" id="Ufemissor"
+                                    ng-model="UfemissorSelect" ng-selected="true"
+                                    ng-options="v.Sguf for v in ufs track by v.Sguf">
+                                <option value="">Selecione..</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Dtemissao" class="form-label">Emissao</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="cliente.Dtemissao" name="datepicker" class="date-picker form-control bg-success" id="Dtemissao"
+                                       mindate="01/01/1917" required>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Cpf" ng-class="{'alert-danger':ValidarCpf() == false}" class="form-label">CPF <span ng-show="ValidarCpf() == false">{{invalido}}</span></label>
+                            <input name="cpf" id="Cpf" type="text" class="form-control bg-success" data-ng-change="ValidarCpf()" ng-model="cliente.Cpf" validate-cpf data-mask="999.999.999-99" required ng-readonly="isEdit && cliente.Cpf">
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Nacionalidade" class="form-label">Nacionalidade</label>
+                            <input type="text" minlength="6" maxlength="50" ng-model="cliente.Nacionalidade" name="Nacionalidade" class="form-control bg-success" id="Nacionalidade"
+                                   value="Brasileiro" placeholder="Nacionalidade" required readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Naturalidade" class="form-label">Naturalidade</label>
+                            <select class="form-control bg-success select-basic" data-search="true" id="Naturalidade"
+                                    ng-model="Naturalidade" ng-selected="true"
+                                    ng-options="v.Nomunicipio for v in municipios track by v.Nomunicipio">
+                                <option value="">Selecione..</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Dtnascimento" class="form-label">Nascimento</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="cliente.Dtnascimento" name="datepicker" class="date-picker form-control bg-success" id="Dtnascimento" placeholder="Selecione uma data..." required>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Nomepai" class="form-label">Nome Pai</label>
+                            <input type="text" min="3" max="250" ng-model="cliente.Nomepai" name="Nomepai" class="form-control bg-success" id="Nomepai" placeholder="Nome Pai">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Nomemae" class="form-label">Nome Mae</label>
+                            <input type="text" minlength="3" maxlength="250" ng-model="cliente.Nomemae" name="Nomemae" class="form-control bg-success" id="Nomemae" placeholder="Nome Mae" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Cadadministracao" class="form-label">Admin</label>
+                            <input type="text" min="3" max="50" ng-model="cliente.Cadadministracao" name="Cadadministracao" class="form-control bg-success" id="Cadadministracao" placeholder="Cad Administracao">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><strong>{{endereco}}</strong></legend>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Cep" class="form-label">Cep</label>
+                            <input type="text" ng-model="cliente.Cep" name="Cep" class="form-control bg-success" id="Cep" data-mask="99.999-999" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group" style="margin-top: 23px;">
+                            <button type="button" class="btn btn-default btn-rounded" ng-click="getCep()">Pesquisar</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Endereco" class="form-label">Endereco</label>
+                            <input type="text" ng-model="cliente.Endereco" name="Endereco" class="form-control bg-success" id="Endereco" placeholder="Endereco" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Bairro" class="form-label">Bairro</label>
+                            <input type="text" ng-model="cliente.Bairro" name="Bairro" class="form-control bg-success" id="Bairro" placeholder="Bairro" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Numero" class="form-label">Numero</label>
+                            <input type="number" ng-model="cliente.Numero" name="Numero" class="form-control bg-success" id="Numero" placeholder="Numero">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Complemento" class="form-label">Complemento</label>
+                            <input type="text" minlength="6" maxlength="250" ng-model="cliente.Complemento" name="Complemento" class="form-control bg-success" id="Complemento" placeholder="Complemento" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Cidade" class="form-label">Cidade</label>
+                            <input type="text" ng-model="cliente.Cidade" name="Cidade" class="form-control bg-success" id="Cidade" placeholder="Cidade" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Estado" class="form-label">Estado</label>
+                            <input type="text" ng-model="cliente.Estado" name="Estado" class="form-control bg-success" id="Estado" placeholder="Estado" readonly>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><strong>Outras {{informacoes}}</strong></legend>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Telresidencial" class="form-label">Telefone Residencial</label>
+                            <input type="text" ng-model="cliente.Telresidencial" name="Telresidencial" class="form-control bg-success" id="Telresidencial" data-mask="(99)9999-9999" placeholder="(99)9999-9999">
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Telcomercial" class="form-label">Telefone Comercial</label>
+                            <input type="text" ng-model="cliente.Telcomercial" name="Telcomercial" class="form-control bg-success" id="Telcomercial" data-mask="(99)9999-9999" placeholder="(99)9 9999-9999">
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Telcelular" class="form-label">Telefone Celular</label>
+                            <input type="text" ng-model="cliente.Telcelular" name="Telcelular" class="form-control bg-success" id="Telcelular" data-mask="(99)9 9999-9999" placeholder="(99)9 9999-9999" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Orgaotrabalhoid" class="form-label">{{orgao}}</label>
+                            <select class="form-control bg-success select-basic" data-search="true" required id="Orgaotrabalhoid"
+                                    ng-model="Orgaotrabalho" ng-selected="cliente.Orgaotrabalhoid  == v.Id"
+                                    ng-options="v.Orgao for v in orgaos track by v.Id">
+                                <option value="">Selecione...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Escolaridadeid" class="form-label">Escolaridade</label>
+                            <select class="form-control bg-success select-basic" data-search="true" required id="Escolaridadeid"
+                                    ng-model="Escolaridade" ng-selected="cliente.Escolaridadeid  == v.Id"
+                                    ng-options="v.Escolaridade for v in escolaridades track by v.Id">
+                                <option value="">Selecione...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Instituicao" class="form-label">{{instituicao}}</label>
+                            <input type="text" minlength="6" maxlength="250" ng-model="cliente.Instituicao" name="Instituicao" class="form-control bg-success" id="Instituicao"
+                                   placeholder="{{instituicao}}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="Dtconclusao" class="form-label">Conclusao</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="cliente.Dtconclusao" name="datepicker" class="date-picker form-control bg-success" id="Dtconclusao"
+                                       placeholder="Selecione uma data..." required>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="col-md-1">
+                        <div class="form-group">
+                            <label for="Dtcadastro" class="form-label">Registro</label>
+                            <div class="prepend-icon">
+                                <input type="text" ng-model="cliente.Dtcadastro" name="datepicker" class="date-picker form-control bg-success" id="Dtcadastro"
+                                       placeholder="Selecione uma data..." required>
+                                <i class="icon-calendar"></i>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+              
+                <div class="row" ng-show="administrador == 1">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Idantigo" class="form-label">{{codigo}} Antigo</label>
+                            <input type="number" ng-model="cliente.Idantigo" name="Idantigo" class="form-control bg-success" id="Idantigo" placeholder="{{codigo}} Antigo" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Idorgaoantigo" class="form-label">Idorgaoantigo</label>
+                            <input type="number" ng-model="cliente.Idorgaoantigo" name="Idorgaoantigo" class="form-control bg-success" id="Idorgaoantigo" placeholder="Orgao Antigo" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Idescolaridadeantigo" class="form-label">Idescolaridadeantigo</label>
+                            <input type="number" ng-model="cliente.Idescolaridadeantigo" name="Idescolaridadeantigo" class="form-control bg-success" id="Idescolaridadeantigo" placeholder="Escolaridade Antiga" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="Qtdacesso" class="form-label">Qtd. Acesso</label>
+                            <input type="number" ng-model="cliente.Qtdacesso" name="Qtdacesso" class="form-control bg-success" id="Qtdacesso" placeholder="Qtd. Acesso" readonly>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="modal-footer">
+                <button type="button" ng-click="exitModal()" class="btn btn-default btn-embossed" data-dismiss="modal">Fechar</button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary btn-embossed" data-dismiss="modal">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
